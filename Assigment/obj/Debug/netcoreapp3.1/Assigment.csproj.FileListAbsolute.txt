@@ -436,3 +436,6 @@ C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Proje
 C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Logout.cshtml.g.cs
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml.g.cs
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.cshtml.g.cs
