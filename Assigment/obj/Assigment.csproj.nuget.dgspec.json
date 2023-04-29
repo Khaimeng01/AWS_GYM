@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Arvind\\OneDrive - Asia Pacific University\\Degree Lvl 3\\SEM 2\\DDAC\\Projects\\Assignment\\Assigment\\Assigment.csproj": {}
+    "C:\\Users\\laikh\\Desktop\\AWS_CODE\\Assigment\\Assigment.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Arvind\\OneDrive - Asia Pacific University\\Degree Lvl 3\\SEM 2\\DDAC\\Projects\\Assignment\\Assigment\\Assigment.csproj": {
+    "C:\\Users\\laikh\\Desktop\\AWS_CODE\\Assigment\\Assigment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Arvind\\OneDrive - Asia Pacific University\\Degree Lvl 3\\SEM 2\\DDAC\\Projects\\Assignment\\Assigment\\Assigment.csproj",
+        "projectUniqueName": "C:\\Users\\laikh\\Desktop\\AWS_CODE\\Assigment\\Assigment.csproj",
         "projectName": "Assigment",
-        "projectPath": "C:\\Users\\Arvind\\OneDrive - Asia Pacific University\\Degree Lvl 3\\SEM 2\\DDAC\\Projects\\Assignment\\Assigment\\Assigment.csproj",
-        "packagesPath": "C:\\Users\\Arvind\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Arvind\\OneDrive - Asia Pacific University\\Degree Lvl 3\\SEM 2\\DDAC\\Projects\\Assignment\\Assigment\\obj\\",
+        "projectPath": "C:\\Users\\laikh\\Desktop\\AWS_CODE\\Assigment\\Assigment.csproj",
+        "packagesPath": "C:\\Users\\laikh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\laikh\\Desktop\\AWS_CODE\\Assigment\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Arvind\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\laikh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -69,6 +69,22 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.22, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql.Design": {
+              "target": "Package",
+              "version": "[1.1.2, )"
+            },
+            "Semantic-UI-2.0": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "bootstrap": {
+              "target": "Package",
+              "version": "[5.2.3, )"
             }
           },
           "imports": [
@@ -81,6 +97,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.21, 3.1.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -89,7 +111,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -47,6 +47,10 @@ namespace Assigment.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
+            [Display(Name = "Username")]
+            public string CustomerName { get; set; }
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -61,6 +65,21 @@ namespace Assigment.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required]
+            [Display(Name = "Phone Number")]
+            public string PhoneNumber { get; set; }
+
+            [Required]
+            [Range(18,100,ErrorMessage="Invalid AGE")]
+            [Display(Name = "Customer Age")]
+            public int customerAge { get; set; }
+
+
+
+
+
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -75,7 +94,11 @@ namespace Assigment.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new AssigmentUser { UserName = Input.Email, Email = Input.Email };
+                var user = new AssigmentUser 
+                { UserName = Input.CustomerName, 
+                    Email = Input.Email,
+                    PhoneNumber = Input.PhoneNumber,
+                };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

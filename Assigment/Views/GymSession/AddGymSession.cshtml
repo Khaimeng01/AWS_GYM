@@ -1,0 +1,76 @@
+﻿@model Assigment.Models.gymSession
+
+@{
+    ViewData["Title"] = "AddGymSession";
+}
+
+<div>
+    <h1>AddGymSession</h1>
+    <br>
+    <form method="post" asp-action="ProcessAdditonalData" asp-controller="GymSession">
+
+      @*Trainer Name*@
+      <div class="form-group row">
+        <label for="gymSession_TrainerName" class="col-sm-2 col-form-label">Trainer Name</label>
+        <div class="col-sm-10">
+          <input asp-for="gymSession_TrainerName" type="text" class="form-control" id="trainerName" placeholder="gymSession_TrainerName" >
+        </div>
+      </div>
+
+      @*Category*@
+      <div class="form-group row">
+        <label for=" gymSession_Category" class="col-sm-2 col-form-label">Category</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="gymSession_Category" asp-for="gymSession_Category">
+              <option>Weights</option>
+              <option>Legs</option>
+              <option>Tool</option>
+              <option>Test</option>
+              <option>Work</option>
+          </select>
+        </div>
+      </div>
+
+
+      @*Slots *@
+      <div class="form-group row">
+        <label for="gymSession_TrainerName" class="col-sm-2 col-form-label">Slots</label>
+        <div class="col-sm-10">
+            <input asp-for="gymSession_Slots" type="number" class="form-control" id="gymSession_TrainerName" placeholder="Enter a number">
+        </div>
+      </div>
+
+      @*Date *@
+      <div class="form-group row">
+        <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
+        <div class="col-sm-10">
+          <input asp-for="gymSession_Date" type="date" class="form-control" id="date">
+        </div>
+      </div>
+
+      @*Time Slotes*@
+      <div class="form-group row">
+        <label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Category</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="time" asp-for="gymSession_Time">
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Evening</option>
+          </select>
+        </div>
+      </div>
+
+   
+      @*Submit Button*@
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+      </div>
+
+    </form>
+</div>
+
+
+
+

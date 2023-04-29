@@ -12,6 +12,11 @@
             <h4>Create a new account.</h4>
             <hr />
             <div asp-validation-summary="All" class="text-danger"></div>
+             <div class="form-group">
+                <label asp-for="Input.CustomerName"></label>
+                <input asp-for="Input.CustomerName" class="form-control" />
+                @*<span asp-validation-for="Input.Email" class="text-danger"></span>*@
+            </div>
             <div class="form-group">
                 <label asp-for="Input.Email"></label>
                 <input asp-for="Input.Email" class="form-control" />
@@ -27,6 +32,17 @@
                 <input asp-for="Input.ConfirmPassword" class="form-control" />
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
+             <div class="form-group">
+                <label asp-for="Input.PhoneNumber "></label>
+                <input asp-for="Input.PhoneNumber " class="form-control" />
+                @*<span asp-validation-for="Input.Email" class="text-danger"></span>*@
+            </div>
+             <div class="form-group">
+                <label asp-for="Input.customerAge "></label>
+                <input asp-for="Input.customerAge " class="form-control" />
+                <span asp-validation-for="Input.customerAge" class="text-danger"></span>
+            </div>
+
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
     </div>
@@ -60,6 +76,15 @@
             }
         </section>
     </div>
+   <div class="ui selection dropdown">
+      <input type="hidden" name="gender">
+      <i class="dropdown icon"></i>
+      <div class="default text">Gender</div>
+      <div class="menu">
+        <div class="item" data-value="1">Male</div>
+        <div class="item" data-value="0">Female</div>
+   </div>
+</div>
 </div>
 
 @section Scripts {

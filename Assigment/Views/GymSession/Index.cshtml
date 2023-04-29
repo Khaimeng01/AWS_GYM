@@ -1,0 +1,91 @@
+﻿@using Assigment.Models
+@model List<Assigment.Models.gymSession>
+
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="card rounded p-3" style="border: 3px solid;">
+    <div class="card-body">
+        
+       <div>
+            <div style="display: inline-block;">
+                <h1>Gym Session Management1</h1>
+            </div>
+            <div style="display: inline-block; float: right;">
+                <a asp-action="AddGymSession" asp-controller="GymSession">
+                    <span class="material-symbols-outlined">
+                        add_circle
+                    </span>
+                </a>
+            </div>
+        </div>
+        
+
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Id</th>
+              <th scope="col">Category</th>
+              <th scope="col">Trainer Name</th>
+               <th scope="col">Date</th>
+              <th scope="col">Slots</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+               @{
+                    int rowNum = 1;
+                }
+               @foreach (var session in Model)
+                        {
+                            <tr>
+                                <th scope="row">@rowNum</th>
+                                <th>@session.gymSession_ID</th>
+                                <td>@session.gymSession_Category</td>
+                                <td>@session.gymSession_TrainerName</td>
+                                <td>@session.gymSession_Date.ToShortDateString()</td>
+                                <td>@session.gymSession_Slots</td>
+                                <td>
+                                    <div style="display: inline-block;">
+                                        <form asp-action="Delete" asp-controller="GymSession" asp-route-id="@session.gymSession_ID">
+                                            <button type="submit">
+                                                <span class="material-symbols-outlined">edit</span>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <div style="display: inline-block;">
+                                        <form asp-action="Delete" asp-controller="GymSession" asp-route-id="@session.gymSession_ID">
+                                            <button type="submit">
+                                                <span class="material-symbols-outlined">delete</span>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    @*<div>
+                                        <div style="display: inline-block; padding-right: 10px;">
+                                            <button>
+                                                 <span class="material-symbols-outlined">edit</span>
+                                            </button>
+                                        </div>
+                                        <div style="display: inline-block;">
+                                            <button>
+                                                 <span class="material-symbols-outlined">delete</span>
+                                            </button>
+                                        </div>
+                                    </div>*@
+                              
+                                </td>
+                            </tr>
+                             rowNum++;
+                        }
+          </tbody>
+          </table>
+    </div>
+</div>
+
+
+
+
