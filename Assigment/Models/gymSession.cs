@@ -19,6 +19,12 @@ namespace Assigment.Models
 
         public string gymSession_Time { get; set; }
 
+        public string gymSession_Trainer_Image_URL { get; set; }
 
+        public string gymSession_Trainer_Image_S3Key { get; set; }
+
+        public bool IsImageUpdated { get; set; }
+
+        public string gymSession_Trainer_Prev_Image_URL { get; set; }
     }
 }

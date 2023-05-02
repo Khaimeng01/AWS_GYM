@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Vup53nDCtNP0k1h4hEHo8lQDiXqH2n+vJlXjxR1lLqqlaDrRRIFZXM+vNFD8fs4/5dbzOpzKrEhnL65TH35rgw==",
+  "dgSpecHash": "G7CciFesuzEKN+MMG9GQIBmaaEbqM2gNhyFl9PJxKFc9SwJwx48+XBz1cGhhwdNUnbzR4uDvLEvM6G+UANvRPg==",
   "success": true,
   "projectFilePath": "C:\\Users\\laikh\\Desktop\\AWS_CODE\\Assigment\\Assigment.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\laikh\\.nuget\\packages\\awssdk.core\\3.7.106.29\\awssdk.core.3.7.106.29.nupkg.sha512",
+    "C:\\Users\\laikh\\.nuget\\packages\\awssdk.s3\\3.7.104.7\\awssdk.s3.3.7.104.7.nupkg.sha512",
+    "C:\\Users\\laikh\\.nuget\\packages\\awssdk.simplenotificationservice\\3.7.101.58\\awssdk.simplenotificationservice.3.7.101.58.nupkg.sha512",
     "C:\\Users\\laikh\\.nuget\\packages\\bootstrap\\5.2.3\\bootstrap.5.2.3.nupkg.sha512",
     "C:\\Users\\laikh\\.nuget\\packages\\bouncycastle.netcore\\1.8.3\\bouncycastle.netcore.1.8.3.nupkg.sha512",
     "C:\\Users\\laikh\\.nuget\\packages\\google.protobuf\\3.11.4\\google.protobuf.3.11.4.nupkg.sha512",

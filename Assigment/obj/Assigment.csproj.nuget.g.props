@@ -375,5 +375,8 @@
     <PkgjQuery Condition=" '$(PkgjQuery)' == '' ">C:\Users\laikh\.nuget\packages\jquery\1.8.1</PkgjQuery>
     <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\laikh\.nuget\packages\microsoft.codeanalysis.analyzers\2.9.4</PkgMicrosoft_CodeAnalysis_Analyzers>
     <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\laikh\.nuget\packages\microsoft.entityframeworkcore.tools\3.1.32</PkgMicrosoft_EntityFrameworkCore_Tools>
+    <PkgAWSSDK_Core Condition=" '$(PkgAWSSDK_Core)' == '' ">C:\Users\laikh\.nuget\packages\awssdk.core\3.7.106.29</PkgAWSSDK_Core>
+    <PkgAWSSDK_SimpleNotificationService Condition=" '$(PkgAWSSDK_SimpleNotificationService)' == '' ">C:\Users\laikh\.nuget\packages\awssdk.simplenotificationservice\3.7.101.58</PkgAWSSDK_SimpleNotificationService>
+    <PkgAWSSDK_S3 Condition=" '$(PkgAWSSDK_S3)' == '' ">C:\Users\laikh\.nuget\packages\awssdk.s3\3.7.104.7</PkgAWSSDK_S3>
   </PropertyGroup>
 </Project>

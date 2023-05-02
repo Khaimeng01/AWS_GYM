@@ -30,7 +30,7 @@ namespace Assigment
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddDbContext<MyDbContext>(options =>
-                options.UseMySQL(Configuration.GetConnectionString("AssigmentContextConnection")));
+                options.UseMySQL(Configuration.GetConnectionString("AssigmentContextConnection_2")));
 
         }
 
