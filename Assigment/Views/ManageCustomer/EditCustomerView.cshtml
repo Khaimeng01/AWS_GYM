@@ -1,0 +1,77 @@
+﻿@model editUserViewModel
+    
+
+@{ViewData["Title"] = "EditCustomerView"; ViewData["Title"] = "EditGymSession";
+}
+
+<style>
+  .form-container {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .no-border-input {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+  }
+</style>
+
+<div class="container form-container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1>Edit Customer</h1>
+      <br>
+      <form method="post" asp-action="Edit" asp-controller="ManageCustomer" >
+
+        <div class="form-group">
+          <label for="Username">Username</label>
+          <input type="username" class="form-control" id="Username" asp-for="UserName" required>
+          <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="Email">Email</label>
+          <input type="email" class="form-control" id="Email" asp-for="Email" required>
+          <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+
+
+        <div class="form-group">
+          <label for="PhoneNumber">Phone Number</label>
+          <input type="tel" class="form-control" id="PhoneNumber" asp-for="PhoneNumber" required>
+          <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" id="address" asp-for="address" required>
+          <span asp-validation-for="address" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="RegisteredDate">Date</label>
+          <input asp-for="RegisteredDate" type="date" class="form-control" id="RegisteredDate">
+          <span asp-validation-for="RegisteredDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="Ic">Identification Number</label>
+          <input type="text" class="form-control" id="Ic" asp-for="Ic" required>
+          <span asp-validation-for="Ic" class="text-danger"></span>
+        </div>
+
+        <div class="text-right">
+          <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+

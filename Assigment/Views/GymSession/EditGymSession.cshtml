@@ -2,111 +2,120 @@
 @{
     ViewData["Title"] = "EditGymSession";
 }
+ <style>
+     .form-container {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    }
 
-<div>
-    <h1>Edit Gym Session</h1>
-    <br>
-    <form method="post" asp-action="UpdateProcessData" asp-controller="GymSession" enctype="multipart/form-data">
+    .no-border-input {
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+    }
+ </style>
 
-      @*Trainer Name*@
-      <div class="form-group row">
-        <label for="gymSession_TrainerName" class="col-sm-2 col-form-label">Trainer Name</label>
-        <div class="col-sm-10">
-          <input asp-for="gymSession_TrainerName" type="text" class="form-control" id="trainerName" placeholder="gymSession_TrainerName" >
-        </div>
-      </div>
+<div class="container form-container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1>Edit Gym Session</h1>
+            <br>
+        <form method="post" asp-action="UpdateProcessData" asp-controller="GymSession" enctype="multipart/form-data">
+            <div class="row">
+                    <div class="col-md-6">
+                                @*Trainer Name*@
+                                <div class="form-group">
+                                    <label for="gymSession_TrainerName" class="col-form-labell">Trainer Name</label>
+                                    <input asp-for="gymSession_TrainerName" type="text" class="form-control" id="trainerName" placeholder="gymSession_TrainerName">
+                                </div>
 
-      @*Category*@
-      <div class="form-group row">
-        <label for=" gymSession_Category" class="col-sm-2 col-form-label">Category</label>
-        <div class="col-sm-10">
-          <select class="form-control" id="gymSession_Category" asp-for="gymSession_Category">
-              <option>Weighlifting Class</option>
-              <option>Boxing Class</option>
-              <option>Spin/Cycling Class</option>
-              <option>Personal Class</option>
-              <option>Pilates Class</option>
-              <option>Yoga Class</option>
-          </select>
-        </div>
-      </div>
-
-
-      @*Slots *@
-      <div class="form-group row">
-        <label for="gymSession_TrainerName" class="col-sm-2 col-form-label">Slots</label>
-        <div class="col-sm-10">
-            <input asp-for="gymSession_Slots" type="number" class="form-control" id="gymSession_TrainerName" placeholder="Enter a number">
-        </div>
-      </div>
-
-      @*Date *@
-      <div class="form-group row">
-        <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
-        <div class="col-sm-10">
-          <input asp-for="gymSession_Date" type="date" class="form-control" id="date">
-        </div>
-      </div>
-
-      @*Time Slotes*@
-      <div class="form-group row">
-        <label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Time Slots</label>
-        <div class="col-sm-10">
-          <select class="form-control" id="time" asp-for="gymSession_Time">
-              <option>Morning</option>
-              <option>Afternoon</option>
-              <option>Evening</option>
-          </select>
-        </div>
-      </div>
+                                  @*Category*@
+                                  <div class="form-group">
+                                    <label for=" gymSession_Category" class="col-form-label">Category</label>
+      
+                                      <select class="form-control" id="gymSession_Category" asp-for="gymSession_Category">
+                                          <option>Weights</option>
+                                          <option>Legs</option>
+                                          <option>Tool</option>
+                                          <option>Test</option>
+                                          <option>Work</option>
+                                      </select>
+                                  </div>
 
 
-      <div class="form-group row">
-        <div class="col-sm-2">Upload Image</div>
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="editImageCheckbox" onchange="toggleFileInput()">
-            <label class="form-check-label" for="editImageCheckbox">
-              Edit Existing Image
-            </label>
-          </div>
-          <input type="hidden" asp-for="IsImageUpdated" id="isImageUpdated">
-        </div>
-    </div>
-@*
-       <div  class="form-group row">
-         <label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Upload Image</label>
-         <div class="col-sm-10">
-          <input asp-for="gymSession_Trainer_Image_URL" type="file" name="imagefile"  class="form-control" id="date" value="@Model.gymSession_Trainer_Image_URL">
+                                  @*Slots *@
+                                  <div class="form-group">
+                                    <label for="gymSession_TrainerName" class="col-form-label">Slots</label>
+                                        <input asp-for="gymSession_Slots" type="number" class="form-control" id="gymSession_TrainerName" placeholder="Enter a number">
+                                  </div>
 
-          </div>
-      </div>*@
+                                  @*Date *@
+                                  <div class="form-group ">
+                                    <label for="inputDate" class="col-form-label">Date</label>
+                                      <input asp-for="gymSession_Date" type="date" class="form-control" id="date">
+                                  </div>
+
+                                  @*Time Slotes*@
+                                  <div class="form-group ">
+                                    <label for="exampleFormControlSelect1" class="col-form-label">Category</label>
+                                      <select class="form-control" id="time" asp-for="gymSession_Time">
+                                          <option>Morning</option>
+                                          <option>Afternoon</option>
+                                          <option>Evening</option>
+                                      </select>
+ 
+                                  </div>
+
+              
+                                    @*Submit Button*@
+                                  <div class="form-group text-right">
+                                      <button type="submit" class="btn btn-primary">Edit Details</button>
+                                    </div>
+                                  </div>
+
+                               <div class="col-md-6">
+		                          <div class="form-group">
+				                        <div class="">Upload Image</div>
+						                        <div class="form-check">
+							                        <input class="form-check-input" type="checkbox" id="editImageCheckbox" onchange="toggleFileInput()">
+							                        <label class="form-check-label" for="editImageCheckbox">
+								                        Edit Existing Image
+							                        </label>
+						                        </div>
+						                        <input type="hidden" asp-for="gymSession_Trainer_Image_URL" id="gymSession_Trainer_Image_URL" value="@Model.gymSession_Trainer_Image_URL">
+						                        <input type="file" name="imagefile" class="form-control" id="fileInput" style="display: none;">
+				                        </div>
+			                        </div>
+		                        </div>
+
+                <input type="hidden" asp-for="gymSession_ID" />
+                <input type="hidden" asp-for="gymSession_IsImageUpdated" id="gymSession_isImageUpdated" />
+                <input type="hidden" asp-for="gymSession_Trainer_Prev_Image_URL" id="gymSession_Trainer_Prev_Image_URL" />
+                <input type="hidden" asp-for="gymSession_Trainer_Image_S3Key" id="gymSession_Trainer_Image_S3Key" />
 
   
-      @*Submit Button*@
-      <div class="form-group row">
-        <div class="col-sm-10">
-          <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
+                <script>
+                  function toggleFileInput() {
+                        var checkbox = document.getElementById("editImageCheckbox");
+                        var fileInput = document.getElementById("fileInput");
+                        var isImageUpdated = document.getElementById("gymSession_IsImageUpdated");
+                        var previous = document.getElementById("gymSession_Trainer_Prev_Image_URL");
+                        if (checkbox.checked) {
+                          fileInput.style.display = "block";
+                          isImageUpdated.value = true;
+                          previous=@Model.gymSession_Trainer_Image_S3Key;
+                        } else {
+                          fileInput.style.display = "none";
+                          isImageUpdated.value = false;
+                             }
+                        }
+                </script>
         </div>
-      </div>
-
-    </form>
-
-     <script>
-      function toggleFileInput() {
-    var checkbox = document.getElementById("editImageCheckbox");
-    var fileInput = document.getElementById("gymSession_Trainer_Image_URL");
-    var isImageUpdated = document.getElementById("isImageUpdated");
-    var previous = document.getElementById("gymSession_Trainer_Prev_Image_URL");
-    if (checkbox.checked) {
-      fileInput.style.display = "block";
-      isImageUpdated.value = true;
-      previous=@Model.gymSession_Trainer_Image_S3Key;
-    } else {
-      fileInput.style.display = "none";
-      isImageUpdated.value = false;
-    }
-  }
-    </script>
+    </div>
 </div>
+
 

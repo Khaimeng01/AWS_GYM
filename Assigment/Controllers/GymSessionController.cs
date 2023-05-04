@@ -6,6 +6,7 @@ using Assigment.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,11 +19,12 @@ namespace Assigment.Controllers
     {
         private readonly MyDbContext _context;
         private const string bucketname = "gym3musk";
+        private readonly ILogger<GymSessionController> _logger;
 
-
-        public GymSessionController(MyDbContext context)
+        public GymSessionController(MyDbContext context, ILogger<GymSessionController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         private List<string> getKeyValues()
@@ -110,7 +112,7 @@ namespace Assigment.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateProcessData(gymSession session,IFormFile imageFile)
+        public async Task<IActionResult> UpdateProcessData(gymSession session, IFormFile imageFile)
         {
             List<string> values = getKeyValues();
             AmazonS3Client connectionClient = new AmazonS3Client(values[0], values[1], values[2], RegionEndpoint.USEast1);
@@ -120,14 +122,15 @@ namespace Assigment.Controllers
                 return View("AddGymSessions");
             }
 
-            if (session.IsImageUpdated)
+            if (session.gymSession_IsImageUpdated)
             {
                 try
                 {
+                    _logger.LogInformation($"Session ID: {session.gymSession_Trainer_Image_S3Key}");
                     DeleteObjectRequest deleteRequest = new DeleteObjectRequest
                     {
                         BucketName = bucketname,
-                        Key = session.gymSession_Trainer_Prev_Image_URL
+                        Key = session.gymSession_Trainer_Image_S3Key
                     };
 
                     await connectionClient.DeleteObjectAsync(deleteRequest);
@@ -144,21 +147,85 @@ namespace Assigment.Controllers
 
                     session.gymSession_Trainer_Image_URL = "https://" + bucketname + ".s3.amazonaws.com/images/" + imageFile.FileName;
                     session.gymSession_Trainer_Image_S3Key = "images/" + imageFile.FileName;
-
-
                 }
                 catch (AmazonS3Exception ex) { }
             }
 
-
-            session.IsImageUpdated = false;
+            session.gymSession_IsImageUpdated = false;
             session.gymSession_Trainer_Prev_Image_URL = "";
 
-            _context.GymSessions.Update(session);
+            _logger.LogInformation($"Session ID: {session.gymSession_ID}");
+            // Load the existing gym session from the database
+            var existingSession = await _context.GymSessions.FindAsync(session.gymSession_ID);
+            if (existingSession == null)
+            {
+                return NotFound();
+            }
+
+            // Update the existing gym session's properties with the new values
+            existingSession.gymSession_TrainerName = session.gymSession_TrainerName;
+            existingSession.gymSession_Category = session.gymSession_Category;
+            existingSession.gymSession_Slots = session.gymSession_Slots;
+            existingSession.gymSession_Date = session.gymSession_Date;
+            existingSession.gymSession_Time = session.gymSession_Time;
+            existingSession.gymSession_Trainer_Image_URL = session.gymSession_Trainer_Image_URL;
+            existingSession.gymSession_Trainer_Image_S3Key = session.gymSession_Trainer_Image_S3Key;
+
+            // Save the changes
             _context.SaveChanges();
 
-            return RedirectToAction("Index","GymSession");
+            return RedirectToAction("Index", "GymSession");
         }
+
+        //public async Task<IActionResult> UpdateProcessData(gymSession session,IFormFile imageFile)
+        //{
+        //    List<string> values = getKeyValues();
+        //    AmazonS3Client connectionClient = new AmazonS3Client(values[0], values[1], values[2], RegionEndpoint.USEast1);
+
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View("AddGymSessions");
+        //    }
+
+        //    if (session.IsImageUpdated)
+        //    {
+        //        try
+        //        {
+        //            DeleteObjectRequest deleteRequest = new DeleteObjectRequest
+        //            {
+        //                BucketName = bucketname,
+        //                Key = session.gymSession_Trainer_Prev_Image_URL
+        //            };
+
+        //            await connectionClient.DeleteObjectAsync(deleteRequest);
+
+        //            PutObjectRequest uploadRequest = new PutObjectRequest
+        //            {
+        //                InputStream = imageFile.OpenReadStream(),
+        //                BucketName = bucketname + "/images",
+        //                Key = imageFile.FileName,
+        //                CannedACL = S3CannedACL.PublicRead
+        //            };
+
+        //            await connectionClient.PutObjectAsync(uploadRequest);
+
+        //            session.gymSession_Trainer_Image_URL = "https://" + bucketname + ".s3.amazonaws.com/images/" + imageFile.FileName;
+        //            session.gymSession_Trainer_Image_S3Key = "images/" + imageFile.FileName;
+
+
+        //        }
+        //        catch (AmazonS3Exception ex) { }
+        //    }
+
+
+        //    session.IsImageUpdated = false;
+        //    session.gymSession_Trainer_Prev_Image_URL = "";
+
+        //    _context.GymSessions.Update(session);
+        //    _context.SaveChanges();
+
+        //    return RedirectToAction("Index","GymSession");
+        //}
 
 
         public IActionResult AddGymSession()
@@ -169,42 +236,43 @@ namespace Assigment.Controllers
         [HttpPost]
         public async Task<IActionResult> ProcessAdditonalData(gymSession gymSession, IFormFile imageFile)
         {
-            try
-            {
-                List<string> values = getKeyValues();
-                AmazonS3Client connectionClient = new AmazonS3Client(values[0], values[1], values[2], RegionEndpoint.USEast1);
-
-                PutObjectRequest uploadRequest = new PutObjectRequest
-                {
-                    InputStream = imageFile.OpenReadStream(),
-                    BucketName = bucketname + "/images",
-                    Key = imageFile.FileName,
-                    CannedACL = S3CannedACL.PublicRead
-                };
-
-                await connectionClient.PutObjectAsync(uploadRequest);
-            }catch (Exception ex)
-            {
-                return BadRequest("Error " + ex.Message);
-                //return RedirectToAction("AddGymSession", "GymSession");
-            }
-
-            gymSession.gymSession_Trainer_Image_URL = "https://"+bucketname +".s3.amazonaws.com/images/"+imageFile.FileName;
-            gymSession.gymSession_Trainer_Image_S3Key= "images/"+imageFile.FileName;
-
-            Console.WriteLine(gymSession);
 
             if (ModelState.IsValid)
             {
+                try
+                {
+                    List<string> values = getKeyValues();
+                    AmazonS3Client connectionClient = new AmazonS3Client(values[0], values[1], values[2], RegionEndpoint.USEast1);
+
+                    PutObjectRequest uploadRequest = new PutObjectRequest
+                    {
+                        InputStream = imageFile.OpenReadStream(),
+                        BucketName = bucketname + "/images",
+                        Key = imageFile.FileName,
+                        CannedACL = S3CannedACL.PublicRead
+                    };
+
+                    await connectionClient.PutObjectAsync(uploadRequest);
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest("Error " + ex.Message);
+                    //return RedirectToAction("AddGymSession", "GymSession");
+                }
+
+                gymSession.gymSession_Trainer_Image_URL = "https://" + bucketname + ".s3.amazonaws.com/images/" + imageFile.FileName;
+                gymSession.gymSession_Trainer_Image_S3Key = "images/" + imageFile.FileName;
+
                 _context.GymSessions.Add(gymSession);
                 _context.SaveChanges();
                 return RedirectToAction("Index", "GymSession");
+
+                Console.WriteLine(gymSession);
+            }else
+            {
+                return View("AddGymSession", gymSession);
             }
-   
-
-            return RedirectToAction("AddGymSession", "GymSession");
-
-            
+ 
         }
 
 

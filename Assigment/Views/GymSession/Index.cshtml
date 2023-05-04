@@ -6,35 +6,84 @@
 @{
     ViewData["Title"] = "Index";
 }
+ <style>
+        .gym-session-card {
+            border: 3px solid #B0B0B0;
+            box-shadow: 0 4px 8px 0 rgba(255, 165, 0, 0.2), 0 6px 20px 0 rgba(255, 215, 0, 0.19);
+            border-radius: 5px;
+            min-height: 50vh;
+            overflow: auto;
+            background-color: #f5f5f5;
+        }
 
-<div class="card rounded p-3" style="border: 3px solid;">
-    <div class="card-body">
-        
-       <div>
-            <div style="display: inline-block;">
-                <h1>Gym Session Management1</h1>
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-container h1 {
+            margin-bottom: 0;
+        }
+
+         .centered-column {
+            text-align: center;
+        }
+
+         .add-session-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+         .table-row {
+            background-color: #ffffff;
+        }
+
+        .table-row:nth-child(even) {
+            background-color: #f0f0f0;
+        }
+         .edit-delete-btn {
+            border: none;
+            background: none;
+            cursor: pointer;
+             outline: none; /* Remove the outline */
+        }
+
+        .edit-delete-btn:hover .material-symbols-outlined.edit {
+            color: #ffa500; /* Orange color */
+        }
+
+        .edit-delete-btn:hover .material-symbols-outlined.delete {
+            color: #ff0000; /* Red color */
+        }
+
+</style>
+<div class="card rounded p-3 gym-session-card">
+        <div class="card-body">
+            <div class="header-container">
+                <h1>Gym Session Management</h1>
+                <div class="add-session-container">
+                    <p>Add session</p>
+                    <a asp-action="AddGymSession" asp-controller="GymSession">
+                        <span class="material-symbols-outlined">add_circle</span>
+                    </a>
+                </div>
+
             </div>
-            <div style="display: inline-block; float: right;">
-                <a asp-action="AddGymSession" asp-controller="GymSession">
-                    <span class="material-symbols-outlined">
-                        add_circle
-                    </span>
-                </a>
-            </div>
-        </div>
-        
+
+        <br />
 
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">No</th>
-              <th scope="col">Id</th>
-              <th scope="col">Category</th>
-              <th scope="col">Trainer Name</th>
-               <th scope="col">Date</th>
-               <th scope="col">Time</th>
-              <th scope="col">Slots</th>
-              <th scope="col">Action</th>
+              <th class="centered-column" scope="col">No</th>
+              <th class="centered-column" scope="col">Id</th>
+              <th class="centered-column" scope="col">Category</th>
+              <th class="centered-column" scope="col">Trainer Name</th>
+               <th class="centered-column" scope="col">Date</th>
+               <th class="centered-column" scope="col">Time</th>
+              <th class="centered-column" scope="col">Slots</th>
+              <th class="centered-column" scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -43,26 +92,26 @@
                 }
                @foreach (var session in Model)
                         {
-                            <tr>
-                                <th scope="row">@rowNum</th>
-                                <th>@session.gymSession_ID</th>
-                                <td>@session.gymSession_Category</td>
-                                <td>@session.gymSession_TrainerName</td>
-                                <td>@session.gymSession_Date.ToShortDateString()</td>
-                                <td>@session.gymSession_Time</td>
-                                <td>@session.gymSession_Slots</td>
-                                <td>
+                            <tr class="table-row">
+                                <th class="centered-column" scope="row">@rowNum</th>
+                                <th class="centered-column">@session.gymSession_ID</th>
+                                <td class="centered-column">@session.gymSession_Category</td>
+                                <td class="centered-column">@session.gymSession_TrainerName</td>
+                                <td class="centered-column">@session.gymSession_Date.ToShortDateString()</td>
+                                <td class="centered-column">@session.gymSession_Time</td>
+                                <td class="centered-column">@session.gymSession_Slots</td>
+                                <td class="centered-column">
                                     <div style="display: inline-block;">
                                         <form asp-action="EditGymSession" asp-controller="GymSession" asp-route-id="@session.gymSession_ID">
-                                            <button type="submit">
-                                                <span class="material-symbols-outlined">edit</span>
+                                            <button type="submit" class="edit-delete-btn">
+                                                <span class="material-symbols-outlined edit">edit</span>
                                             </button>
                                         </form>
                                     </div>
                                     <div style="display: inline-block;">
                                         <form asp-action="Delete" asp-controller="GymSession" asp-route-id="@session.gymSession_ID">
-                                            <button type="submit">
-                                                <span class="material-symbols-outlined">delete</span>
+                                            <button type="submit" class="edit-delete-btn">
+                                                <span class="material-symbols-outlined delete">delete</span>
                                             </button>
                                         </form>
                                     </div>

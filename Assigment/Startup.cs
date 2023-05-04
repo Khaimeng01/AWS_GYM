@@ -1,7 +1,9 @@
+using Assigment.Data;
 using Assigment.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +33,12 @@ namespace Assigment
             services.AddRazorPages();
             services.AddDbContext<MyDbContext>(options =>
                 options.UseMySQL(Configuration.GetConnectionString("AssigmentContextConnection_2")));
+    //        services.AddDbContext<AssigmentContext>(options =>
+    //options.UseSqlServer(Configuration.GetConnectionString("AssigmentContextConnection")));
+    //        services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    //            .AddEntityFrameworkStores<AssigmentContext>();
+
+
 
         }
 

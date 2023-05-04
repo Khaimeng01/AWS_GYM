@@ -3,83 +3,101 @@
 @{
     ViewData["Title"] = "AddGymSession";
 }
+ <style>
+     .form-container {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    }
 
-<div>
-    <h1>AddGymSession</h1>
-    <br>
-    <form method="post" asp-action="ProcessAdditonalData" asp-controller="GymSession" enctype="multipart/form-data">
+    .no-border-input {
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+    }
+ </style>
+<div class="container form-container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <button onclick="window.location.href = 'https://localhost:44392/GymSession';" class="btn btn-link">
+                <div>
+                <span class="material-icons">arrow_back</span>
+                <p>Back</p>
+            </button>
+            <h1>Add Gym Session</h1>
+            <hr>
+            <form method="post" asp-action="ProcessAdditonalData" asp-controller="GymSession" enctype="multipart/form-data">
+                <!-- Trainer Name -->
+                <div class="row">
+                    <div class="col-md-6">
+                         <div class="form-group">
+                            <label for="trainerName">Trainer Name</label>
+                            <input asp-for="gymSession_TrainerName" type="text" class="form-control" id="trainerName" placeholder="Enter trainer name">
+                            <span asp-validation-for="gymSession_TrainerName" class="text-danger"></span>
+                            </div>
 
-      @*Trainer Name*@
-      <div class="form-group row">
-        <label for="gymSession_TrainerName" class="col-sm-2 col-form-label">Trainer Name</label>
-        <div class="col-sm-10">
-          <input asp-for="gymSession_TrainerName" type="text" class="form-control" id="trainerName" placeholder="gymSession_TrainerName" >
+                                  <!-- Category -->
+                        <div class="form-group">
+                            <label for="gymSession_Category">Category</label>
+                            <select class="form-control" id="gymSession_Category" asp-for="gymSession_Category">
+                                <option>Weightlifting Class</option>
+                                <option>Boxing Class</option>
+                                <option>Spin/Cycling Class</option>
+                                <option>Personal Class</option>
+                                <option>Pilates Class</option>
+                                <option>Yoga Class</option>
+                            </select>
+                            <span asp-validation-for="gymSession_Category" class="text-danger"></span>
+                        </div>
+
+                        <!-- Slots -->
+                        <div class="form-group">
+                            <label for="gymSession_Slots">Slots</label>
+                            <input asp-for="gymSession_Slots" type="number" class="form-control" id="gymSession_Slots" placeholder="Enter a number">
+                            <span asp-validation-for="gymSession_Slots" class="text-danger"></span>
+                        </div>
+
+                        <!-- Date -->
+                        <div class="form-group">
+                            <label for="gymSession_Date">Date</label>
+                            <input asp-for="gymSession_Date" type="date" class="form-control" id="gymSession_Date">
+                            <span asp-validation-for="gymSession_Date" class="text-danger"></span>
+                        </div>
+
+                        <!-- Time Slots -->
+                        <div class="form-group">
+                            <label for="gymSession_Time">Time Slots</label>
+                            <select class="form-control" id="gymSession_Time" asp-for="gymSession_Time">
+                                <option>Morning</option>
+                                <option>Afternoon</option>
+                                <option>Evening</option>
+                            </select>
+                            <span asp-validation-for="gymSession_Time" class="text-danger"></span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-group text-right">
+                            <button type="submit" class="btn btn-primary">Add Session</button>
+                        </div>
+                    </div>
+
+                 <div class="col-md-6">
+                     <!-- Upload Image -->
+                    <div class="form-group">
+                        <label for="gymSession_Trainer_Image_URL">Upload Image</label>
+                        <input asp-for="gymSession_Trainer_Image_URL" type="file" name="imagefile" class="form-control no-border-input" id="gymSession_Trainer_Image_URL">
+                    </div>
+                 </div>
+
+                </div>                
+            </form>
         </div>
-      </div>
-
-      @*Category*@
-      <div class="form-group row">
-        <label for=" gymSession_Category" class="col-sm-2 col-form-label">Category</label>
-        <div class="col-sm-10">
-          <select class="form-control" id="gymSession_Category" asp-for="gymSession_Category">
-              <option>Weighlifting Class</option>
-              <option>Boxing Class</option>
-              <option>Spin/Cycling Class</option>
-              <option>Personal Class</option>
-              <option>Pilates Class</option>
-              <option>Yoga Class</option>
-          </select>
-        </div>
-      </div>
-
-
-      @*Slots *@
-      <div class="form-group row">
-        <label for="gymSession_TrainerName" class="col-sm-2 col-form-label">Slots</label>
-        <div class="col-sm-10">
-            <input asp-for="gymSession_Slots" type="number" class="form-control" id="gymSession_TrainerName" placeholder="Enter a number">
-        </div>
-      </div>
-
-      @*Date *@
-      <div class="form-group row">
-        <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
-        <div class="col-sm-10">
-          <input asp-for="gymSession_Date" type="date" class="form-control" id="date">
-        </div>
-      </div>
-
-      @*Time Slotes*@
-      <div class="form-group row">
-        <label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Time Slots</label>
-        <div class="col-sm-10">
-          <select class="form-control" id="time" asp-for="gymSession_Time">
-              <option>Morning</option>
-              <option>Afternoon</option>
-              <option>Evening</option>
-          </select>
-        </div>
-      </div>
-
-      <div>
-         label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Upload Image</label>
-
-         <div class="col-sm-10">
-          <input asp-for="gymSession_Trainer_Image_URL" type="file" name="imagefile"  class="form-control" id="date">
-
-          </div>
-      </div>
-
-   
-      @*Submit Button*@
-      <div class="form-group row">
-        <div class="col-sm-10">
-          <button type="submit" class="btn btn-primary">Sign in</button>
-        </div>
-      </div>
-
-    </form>
+    </div>
 </div>
+
+
 
 
 
