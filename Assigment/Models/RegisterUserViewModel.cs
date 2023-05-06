@@ -5,7 +5,7 @@ namespace Assigment.Models
 {
     public class RegisterUserViewModel
     {
-        [Required(ErrorMessage = "Category is required")]
+     
         public string Username { get; set; }
         [Required(ErrorMessage = "Category is required")]
         public string Email { get; set; }
@@ -19,6 +19,8 @@ namespace Assigment.Models
         public DateTime RegisteredDate { get; set; }
         [Required(ErrorMessage = "Category is required")]
         public string Ic { get; set; }
+
+        public string FullName { get; set; }
 
     }
 }

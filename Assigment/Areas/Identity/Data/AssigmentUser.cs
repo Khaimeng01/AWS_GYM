@@ -14,5 +14,7 @@ namespace Assigment.Areas.Identity.Data
         public DateTime RegisteredDate { get; set; }
 
         public string Ic { get; set; }
+
+        public string FullName { get;set; }
     }
 }

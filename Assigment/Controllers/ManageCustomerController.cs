@@ -2,6 +2,8 @@
 using Assigment.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,12 +12,15 @@ namespace Assigment.Controllers
     public class ManageCustomerController : Controller
     {
         private readonly UserManager<AssigmentUser> _userManager;
-        private readonly SignInManager<AssigmentUser> _signInManager; 
+        private readonly SignInManager<AssigmentUser> _signInManager;
+        private readonly ILogger<ManageCustomerController> _logger;
 
-        public ManageCustomerController(UserManager<AssigmentUser> userManager, SignInManager<AssigmentUser> signInManager) // Change this line to use AssigmentUser
+        public ManageCustomerController(UserManager<AssigmentUser> userManager, 
+            SignInManager<AssigmentUser> signInManager, ILogger<ManageCustomerController> logger) // Change this line to use AssigmentUser
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _logger = logger;
         }
 
         [HttpPost]
@@ -63,11 +68,12 @@ namespace Assigment.Controllers
             if (ModelState.IsValid)
             {
                 var user = new AssigmentUser 
-                {   UserName = model.Username,
+                {   UserName = model.Email,
+                    FullName = model.FullName,
                     Email = model.Email, 
                     PhoneNumber = model.PhoneNumber,
                     address = model.address,
-                    RegisteredDate = model.RegisteredDate,
+                    RegisteredDate = DateTime.Now,
                     Ic = model.Ic,
                 };
                 var result = await _userManager.CreateAsync(user, model.Password);
@@ -82,6 +88,10 @@ namespace Assigment.Controllers
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
+            }
+            else
+            {
+                return RedirectToAction("Index", "GymSession");
             }
             return View(model);
         }
@@ -101,6 +111,7 @@ namespace Assigment.Controllers
 
             var model = new editUserViewModel
             {
+                FullName = user.FullName,
                 UserName = user.UserName,
                 Id = user.Id,
                 Email = user.Email,
@@ -124,8 +135,9 @@ namespace Assigment.Controllers
                     return NotFound();
                 }
 
+                user.FullName = model.FullName;
                 user.Email = model.Email;
-                user.UserName = model.UserName;
+                user.UserName = model.Email;
                 user.PhoneNumber = model.PhoneNumber;
                 user.address = model.address;
                 user.Ic = model.Ic;
@@ -141,6 +153,10 @@ namespace Assigment.Controllers
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
+            }
+            else
+            {
+                return RedirectToAction("Index", "GymSession");
             }
 
             return View(model);

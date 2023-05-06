@@ -27,9 +27,8 @@
       <form method="post" asp-action="Register" asp-controller="ManageCustomer">
           
           <div class="form-group">
-            <label for="Username">Username</label>
-            <input type="username" class="form-control" id="Username" asp-for="Username" required>
-            <span asp-validation-for="Username" class="text-danger"></span>
+            <label for="FullName">Full Name</label>
+            <input type="text" class="form-control" id="FullName" asp-for="FullName" required>
           </div>
 
           <div class="form-group">
@@ -56,11 +55,11 @@
             <span asp-validation-for="address" class="text-danger"></span>
           </div>
 
-          <div class="form-group">
+          @*<div class="form-group">
             <label for="RegisteredDate">Date</label>
             <input asp-for="RegisteredDate" type="date" class="form-control" id="RegisteredDate">
             <span asp-validation-for="RegisteredDate" class="text-danger"></span>
-          </div>
+          </div>*@
 
           <div class="form-group">
             <label for="Ic">Identification Number</label>

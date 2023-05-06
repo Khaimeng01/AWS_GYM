@@ -16,6 +16,8 @@ namespace Assigment.Models
 
         public string Ic { get; set; }
 
+        public string FullName { get; set;}
+
 
     }
 }

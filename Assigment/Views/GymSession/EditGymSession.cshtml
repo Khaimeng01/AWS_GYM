@@ -85,7 +85,7 @@
 								                        Edit Existing Image
 							                        </label>
 						                        </div>
-						                        <input type="hidden" asp-for="gymSession_Trainer_Image_URL" id="gymSession_Trainer_Image_URL" value="@Model.gymSession_Trainer_Image_URL">
+						                        <input type="hidden" asp-for="gymSession_Trainer_Image_URL" id="gymSession_Trainer_Image_URL" value="@Model.gymSession_Trainer_Image_URL" required>
 						                        <input type="file" name="imagefile" class="form-control" id="fileInput" style="display: none;">
 				                        </div>
 			                        </div>
@@ -117,5 +117,29 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        document.getElementById("gymSessionForm").addEventListener("submit", function (event) {
+            var imageFile = document.getElementById("gymSession_Trainer_Image_URL");
+            if (!imageFile.files.length) {
+                event.preventDefault();
+                alert("Please upload an image.");
+            } else {
+                var file = imageFile.files[0];
+                if (file.size > 1048576) { // not more than 1MB
+                    event.preventDefault();
+                    alert("The uploaded file is over the 1MB size limit. Please upload a smaller file.");
+                } else {
+                    var fileType = file.type.toLowerCase();
+                    if (fileType !== "image/png" && fileType !== "image/jpeg" && fileType !== "image/gif") {
+                        event.preventDefault();
+                        alert("The uploaded file is not a valid image. Please upload a PNG, JPEG, or GIF image.");
+                    }
+                }
+            }
+        });
+    </script>
+}
 
 

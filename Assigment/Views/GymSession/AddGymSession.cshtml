@@ -34,7 +34,7 @@
                     <div class="col-md-6">
                          <div class="form-group">
                             <label for="trainerName">Trainer Name</label>
-                            <input asp-for="gymSession_TrainerName" type="text" class="form-control" id="trainerName" placeholder="Enter trainer name">
+                            <input asp-for="gymSession_TrainerName" type="text" class="form-control" id="trainerName" placeholder="Trainer Name">
                             <span asp-validation-for="gymSession_TrainerName" class="text-danger"></span>
                             </div>
 
@@ -87,7 +87,7 @@
                      <!-- Upload Image -->
                     <div class="form-group">
                         <label for="gymSession_Trainer_Image_URL">Upload Image</label>
-                        <input asp-for="gymSession_Trainer_Image_URL" type="file" name="imagefile" class="form-control no-border-input" id="gymSession_Trainer_Image_URL">
+                            <input asp-for="gymSession_Trainer_Image_URL" type="file" name="imagefile" class="form-control no-border-input" id="gymSession_Trainer_Image_URL" required>
                     </div>
                  </div>
 
@@ -96,6 +96,30 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        document.getElementById("gymSessionForm").addEventListener("submit", function (event) {
+            var imageFile = document.getElementById("gymSession_Trainer_Image_URL");
+            if (!imageFile.files.length) {
+                event.preventDefault();
+                alert("Please upload an image.");
+            } else {
+                var file = imageFile.files[0];
+                if (file.size > 1048576) { // not more than 1MB
+                    event.preventDefault();
+                    alert("The uploaded file is over the 1MB size limit. Please upload a smaller file.");
+                } else {
+                    var fileType = file.type.toLowerCase();
+                    if (fileType !== "image/png" && fileType !== "image/jpeg" && fileType !== "image/gif") {
+                        event.preventDefault();
+                        alert("The uploaded file is not a valid image. Please upload a PNG, JPEG, or GIF image.");
+                    }
+                }
+            }
+        });
+    </script>
+}
 
 
 

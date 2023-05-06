@@ -27,19 +27,16 @@
       <br>
       <form method="post" asp-action="Edit" asp-controller="ManageCustomer" >
 
-        <div class="form-group">
-          <label for="Username">Username</label>
-          <input type="username" class="form-control" id="Username" asp-for="UserName" required>
-          <span asp-validation-for="UserName" class="text-danger"></span>
-        </div>
+                    <div class="form-group">
+            <label for="FullName">Full Name</label>
+            <input type="text" class="form-control" id="FullName" asp-for="FullName" required>
+          </div>
 
         <div class="form-group">
           <label for="Email">Email</label>
           <input type="email" class="form-control" id="Email" asp-for="Email" required>
           <span asp-validation-for="Email" class="text-danger"></span>
         </div>
-
-
 
         <div class="form-group">
           <label for="PhoneNumber">Phone Number</label>
@@ -53,11 +50,11 @@
           <span asp-validation-for="address" class="text-danger"></span>
         </div>
 
-        <div class="form-group">
+@*        <div class="form-group">
           <label for="RegisteredDate">Date</label>
           <input asp-for="RegisteredDate" type="date" class="form-control" id="RegisteredDate">
           <span asp-validation-for="RegisteredDate" class="text-danger"></span>
-        </div>
+        </div>*@
 
         <div class="form-group">
           <label for="Ic">Identification Number</label>
@@ -65,8 +62,12 @@
           <span asp-validation-for="Ic" class="text-danger"></span>
         </div>
 
+       <input type="hidden" asp-for="Id" />
+       <input type="hidden" asp-for="RegisteredDate"  class="form-control" id="RegisteredDate">
+
+
         <div class="text-right">
-          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="submit" class="btn btn-primary">Edit</button>
         </div>
       </form>
     </div>

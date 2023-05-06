@@ -239,6 +239,19 @@ namespace Assigment.Controllers
 
             if (ModelState.IsValid)
             {
+                if (imageFile.Length == null)
+                {
+                    return BadRequest("It is an empty file. Unable to upload!");
+                }
+                 if (imageFile.Length > 1048576) //not more than 1MB
+                {
+                    return BadRequest("It is over 1MB limit of size. Unable to upload!");
+                }
+                else if (imageFile.ContentType.ToLower() != "image/png" && imageFile.ContentType.ToLower() != "image/jpeg"
+                    && imageFile.ContentType.ToLower() != "image/gif")
+                {
+                    return BadRequest("It is not a valid image! Unable to upload!");
+                }
                 try
                 {
                     List<string> values = getKeyValues();
