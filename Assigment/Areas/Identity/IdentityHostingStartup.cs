@@ -21,6 +21,7 @@ namespace Assigment.Areas.Identity
                         context.Configuration.GetConnectionString("AssigmentContextConnection")));
 
                 services.AddDefaultIdentity<AssigmentUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                    .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<AssigmentContext>();
             });
         }
