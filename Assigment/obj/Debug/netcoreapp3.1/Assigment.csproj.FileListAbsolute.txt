@@ -906,3 +906,4 @@ C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.cspr
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.dll
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.pdb
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.genruntimeconfig.cache
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.csproj.AssemblyReference.cache

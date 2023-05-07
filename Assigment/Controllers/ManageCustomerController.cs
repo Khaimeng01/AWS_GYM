@@ -53,7 +53,7 @@ namespace Assigment.Controllers
 
         public IActionResult Index()
         {
-            var users = _userManager.Users.ToList();
+            var users = _userManager.GetUsersInRoleAsync("Customer").Result.ToList();
             return View(users);
         }
 

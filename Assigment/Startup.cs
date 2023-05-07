@@ -1,3 +1,4 @@
+using Assigment.Areas.Identity.Data;
 using Assigment.Data;
 using Assigment.Database;
 using Microsoft.AspNetCore.Builder;
@@ -63,6 +64,7 @@ namespace Assigment
             app.UseAuthorization();
 
             CreateRoles(serviceProvider).GetAwaiter().GetResult();
+            CreateAdminUser(serviceProvider).GetAwaiter().GetResult();
 
             app.UseEndpoints(endpoints =>
             {
@@ -87,6 +89,41 @@ namespace Assigment
             if (!await roleManager.RoleExistsAsync("Customer"))
             {
                 await roleManager.CreateAsync(new IdentityRole("Customer"));
+            }
+        }
+
+        private async Task CreateAdminUser(IServiceProvider serviceProvider)
+        {
+            var userManager = serviceProvider.GetRequiredService<UserManager<AssigmentUser>>();
+            var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+            // Check if the "Admin" role exists, throw an exception if not
+            if (!await roleManager.RoleExistsAsync("Admin"))
+            {
+                throw new InvalidOperationException("Admin role not found");
+            }
+
+            // Check if a user with the desired email exists
+            var adminEmail = "admin@example.com";
+            var admin = await userManager.FindByEmailAsync(adminEmail);
+
+            // If the user doesn't exist, create it and assign the "Admin" role
+            if (admin == null)
+            {
+                admin = new AssigmentUser
+                {
+                    UserName = adminEmail,
+                    Email = adminEmail,
+                    PhoneNumber = "0125031601"
+                };
+
+
+                var result =  await userManager.CreateAsync(admin,"1233456_Admin");
+                if (result.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(admin, "Admin");
+                }
+                   
             }
         }
     }
