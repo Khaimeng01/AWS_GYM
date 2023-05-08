@@ -783,8 +783,10 @@ C:\Users\laikh\Desktop\AWS_CODE\Assigment\bin\Debug\netcoreapp3.1\NuGet.Framewor
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.Design.dll
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\bin\Debug\netcoreapp3.1\SendGrid.dll
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
@@ -897,6 +899,7 @@ C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Ma
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageCustomer\AddCustomerView.cshtml.g.cs
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageCustomer\EditCustomerView.cshtml.g.cs
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageCustomer\Index.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\SendEmail\Index.cshtml.g.cs
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -910,4 +913,3 @@ C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.cspr
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.dll
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.pdb
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.genruntimeconfig.cache
-C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.csproj.AssemblyReference.cache
