@@ -1,0 +1,166 @@
+﻿@model Assigment.Models.MyViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    .form-container {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .no-border-input {
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+    }
+</style>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<div class="container form-container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <button onclick="window.location.href = 'https://localhost:44392/GymSession';" class="btn btn-link">
+                <div>
+                    <span class="material-icons">arrow_back</span>
+                    <p>Back</p>
+                </div>
+            </button>
+            <h1>Book Gym Session</h1>
+            <hr>
+            <form method="post" asp-action="AddBooking" asp-controller="BookingSession" enctype="multipart/form-data">
+                <!-- Username Name -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="trainerName">Username: </label>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <input type="text" id="username" name="username" value="@User.Identity.Name" readonly />
+                                @*<span asp-validation-for="BookingSession.bookingSession_Username" class="text-danger"></span>*@
+                            }
+                            else
+                            {
+                                <p>Please log in to see your username.</p>
+                            }
+                        </div>
+
+                        <div>
+                            <select class="form-control" id="gymSession_TrainerName" name="gymSession_TrainerName" asp-for="BookingSession.bookingSession_TrainerName">
+                                <option value="">Select Trainer</option>
+                                @foreach (var session in Model.GymSession)
+                                {
+                                    <option value="@session.gymSession_ID">@session.gymSession_TrainerName</option>
+
+                                }
+                            </select>
+                            <select class="form-control" id="gymSession_Category" asp-for="BookingSession.bookingSession_Category">
+                                <option value="">Select a Category</option>
+                                @foreach (var session in Model.GymSession)
+                                {
+                                    <option value="@session.gymSession_ID">@session.gymSession_Category</option>
+                                }
+                            </select>
+                            <label for="gymSession_Trainer_Image_URL" id="gymSession_Trainer_Image_URL" name="gymSession_Trainer_Image_URL">Image</label>
+                            <img id="selectedTrainerImage" src="" alt="Trainer Image" />
+                        </div>
+                        <script>
+                            $(document).ready(function () {
+                                // Create a JavaScript array of gym sessions
+                                var gymSessions = @Html.Raw(Json.Serialize(Model.GymSession));
+
+                                $('#gymSession_TrainerName').on('change', function () {
+                                    var selectedTrainerId = parseInt($(this).val());
+
+                                    // Use the JavaScript array to find the selected trainer
+                                    var selectedTrainer = gymSessions.find(function (trainer) {
+                                        return trainer.gymSession_ID === selectedTrainerId;
+                                    });
+
+                                    if (selectedTrainer) {
+                                        $('#selectedTrainerImage').attr('src', selectedTrainer.gymSession_Trainer_Image_URL);
+                                    } else {
+                                        $('#selectedTrainerImage').attr('src', ''); // Set the src attribute to an empty string if no trainer is selected
+                                    }
+                                });
+                            });
+                        </script>
+
+                        @*@foreach (var gymSession in Model.GymSession)
+                            {
+                                <div>
+                                    <img src="@gymSession.gymSession_Trainer_Image_URL" alt="Image from S3" readonly />
+                                </div>
+                            }*@
+
+                        @*<select class="form-control" id="gymSession_TrainerName" name="gymSession_TrainerName" asp-for="BookingSession.bookingSession_TrainerName">
+                                <option value="">Select Trainer</option>
+                                @foreach (var session in Model.GymSession)
+                                {
+                                    <option value="@session.gymSession_ID">@session.gymSession_TrainerName</option>
+
+                                }
+                            </select>
+
+                            <label for="gymSession_Trainer_Image_URL" id="gymSession_Trainer_Image_URL" name="gymSession_Trainer_Image_URL">Image</label>
+                            @foreach (var gymSession in Model.GymSession)
+                            {
+                                <div>
+                                    <img src="@gymSession.gymSession_Trainer_Image_URL" alt="Image from S3" readonly />
+                                </div>
+                            }*@
+
+                        @*<select class="form-control" id="gymSession_TrainerName" asp-for="BookingSession.bookingSession_TrainerName">
+                                <option value="">Select Trainer</option>
+                                @foreach (var session in Model.GymSession)
+                                {
+                                    <option value="@session.gymSession_ID">@session.gymSession_TrainerName</option>
+
+                                }
+                            </select>*@
+                        @*@foreach (var gymSession in Model.GymSession)
+                            {
+                                <div>
+                                    <img src="@gymSession.gymSession_Trainer_Image_URL" alt="Image from S3" />
+                                </div>
+                            }*@
+
+                        <select class="form-control" id="gymSession_Date">
+                            <option value="">Select a Date</option>
+                            @foreach (var session in Model.GymSession)
+                            {
+                                <option value="@session.gymSession_ID">@session.gymSession_Date</option>
+                            }
+                        </select>
+
+                        <select class="form-control" id="gymSession_Time">
+                            <option value="">Select Time</option>
+                            @foreach (var session in Model.GymSession)
+                            {
+                                <option value="@session.gymSession_ID">@session.gymSession_Time</option>
+                            }
+                        </select>
+                        <!-- Submit Button -->
+                        <div class="form-group text-right">
+                            <button type="submit" class="btn btn-primary">Add Session</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            @*<script>
+                    // Your jQuery code goes here
+                    $(document).ready(function () {
+                        $('#gymSession_TrainerName').on('input', function () {
+                            var sourceValue = $(this).val();
+                            // Modify sourceValue here as needed
+                            $('#gymSession_Trainer_Image_URL').val(sourceValue);
+                        });
+                    });
+                </script>*@
+        </div>
+    </div>
+</div>

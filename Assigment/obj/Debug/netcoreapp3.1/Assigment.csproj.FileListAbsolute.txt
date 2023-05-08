@@ -913,3 +913,35 @@ C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.cspr
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.dll
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.pdb
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.genruntimeconfig.cache
+<<<<<<< Updated upstream
+=======
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.csproj.AssemblyReference.cache
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\AWSSDK.Core.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\AWSSDK.S3.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\AWSSDK.SimpleNotificationService.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\Google.Protobuf.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\K4os.Compression.LZ4.Streams.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\K4os.Hash.xxHash.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.Design.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\MySql.Data.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\Ubiety.Dns.Core.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\Zstandard.Net.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\MySql.Data.EntityFrameworkCore.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.Design.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\Pomelo.JsonObject.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\Renci.SshNet.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\SshNet.Security.Cryptography.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\System.Xml.XPath.XmlDocument.dll
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\CustomerManagement\Index.cshtml.g.cs
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\GymSession\AddGymSession.cshtml.g.cs
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\GymSession\EditGymSession.cshtml.g.cs
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\GymSession\Index.cshtml.g.cs
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageCustomer\AddCustomerView.cshtml.g.cs
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageCustomer\EditCustomerView.cshtml.g.cs
+C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageCustomer\Index.cshtml.g.cs
+>>>>>>> Stashed changes

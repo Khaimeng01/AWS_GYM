@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<center>
+    <h1>Admin Broadcast Message Page:</h1>
+    <br /><hr /><br />
+    <form method="post" asp-action="broadcastMessage" asp-controller="SNS">
+        <label>Subject Title</label>&nbsp;&nbsp;
+        <input type="text" name="subject" placeholder="e.g. Welcome to FlexZone Fitness!" />
+        <br />
+        <label>Message Body Content</label><br />
+        <textarea name="Message" rows="5" cols="90"></textarea>
+        <br /><br />
+        <button type="submit" class="btn-light">Broadcast Message!</button>
+    </form>
+</center>
