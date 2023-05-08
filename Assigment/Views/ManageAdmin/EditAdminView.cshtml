@@ -1,0 +1,51 @@
+﻿@model EditAdminModel
+@{
+    ViewData["Title"] = "EditAdminView";
+}
+
+<style>
+  .form-container {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .no-border-input {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+  }
+</style>
+
+<div class="container form-container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1>Edit Admin </h1>
+      <br>
+      <form method="post" asp-action="Edit" asp-controller="ManageAdmin" >
+
+        <div class="form-group">
+          <label for="FullName">Full Name</label>
+          <input type="text" class="form-control" id="FullName" asp-for="FullName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="Email">Email</label>
+          <input type="email" class="form-control" id="Email" asp-for="Email" required>
+          <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        
+
+        <input type="hidden" asp-for="Id" />
+
+
+        <div class="text-right">
+          <button type="submit" class="btn btn-primary">Edit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

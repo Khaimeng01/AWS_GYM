@@ -27,9 +27,10 @@
       <br>
       <form method="post" asp-action="Edit" asp-controller="ManageCustomer" >
 
-                    <div class="form-group">
+          <div class="form-group">
             <label for="FullName">Full Name</label>
             <input type="text" class="form-control" id="FullName" asp-for="FullName" required>
+            <span asp-validation-for="FullName" class="text-danger"></span>
           </div>
 
         <div class="form-group">

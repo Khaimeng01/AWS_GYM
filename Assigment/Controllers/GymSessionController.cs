@@ -3,6 +3,7 @@ using Amazon.S3;
 using Amazon.S3.Model;
 using Assigment.Database;
 using Assigment.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace Assigment.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class GymSessionController : Controller
     {
         private readonly MyDbContext _context;

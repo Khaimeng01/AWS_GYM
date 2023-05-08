@@ -1,5 +1,6 @@
 ﻿using Assigment.Areas.Identity.Data;
 using Assigment.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Assigment.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ManageCustomerController : Controller
     {
         private readonly UserManager<AssigmentUser> _userManager;
@@ -51,6 +53,7 @@ namespace Assigment.Controllers
             }
         }
 
+
         public IActionResult Index()
         {
             var users = _userManager.GetUsersInRoleAsync("Customer").Result.ToList();
@@ -67,6 +70,14 @@ namespace Assigment.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                var existingUser = _userManager.Users.SingleOrDefault(u => u.Email == model.Email);
+                if (existingUser != null)
+                {
+                    ModelState.AddModelError("Email", "This email has already been registered.");
+                    return View("AddAdminView", model); ; // Return the view with the error message
+                }
+
                 var user = new AssigmentUser 
                 {   UserName = model.Email,
                     FullName = model.FullName,
@@ -75,25 +86,44 @@ namespace Assigment.Controllers
                     address = model.address,
                     RegisteredDate = DateTime.Now,
                     Ic = model.Ic,
+                    EmailConfirmed = true
                 };
                 var result = await _userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
                 {
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    //await _signInManager.SignInAsync(user, isPersistent: false);
+                    await _userManager.AddToRoleAsync(user, "Customer");
                     return RedirectToAction(nameof(Index));
-                }
-
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
             else
             {
-                return RedirectToAction("Index", "GymSession");
+                if (string.IsNullOrEmpty(model.FullName))
+                {
+                    ModelState.AddModelError("FullName", "Custom full name error message.");
+                }
+                if (string.IsNullOrEmpty(model.Email))
+                {
+                    ModelState.AddModelError("Email", "Custom email error message.");
+                }
+
+                if (string.IsNullOrEmpty(model.address))
+                {
+                    ModelState.AddModelError("address", "Custom address error message.");
+                }
+                if (string.IsNullOrEmpty(model.Ic))
+                {
+                    ModelState.AddModelError("Ic", "Custom IC error message.");
+                }
+                if (string.IsNullOrEmpty(model.Password))
+                {
+                    ModelState.AddModelError("Password", "Custom password error message.");
+                }
+
+
             }
-            return View(model);
+            return View("AddCustomerView", model);
         }
 
         public IActionResult EditCustomerView(string id)
@@ -135,6 +165,14 @@ namespace Assigment.Controllers
                     return NotFound();
                 }
 
+
+                var existingUser = _userManager.Users.SingleOrDefault(u => u.Email == model.Email);
+                if (existingUser != null)
+                {
+                    ModelState.AddModelError("Email", "This email has already been registered.");
+                    return View("EditCustomerView", model); ; // Return the view with the error message
+                }
+
                 user.FullName = model.FullName;
                 user.Email = model.Email;
                 user.UserName = model.Email;
@@ -149,17 +187,74 @@ namespace Assigment.Controllers
                     return RedirectToAction(nameof(Index));
                 }
 
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
+
             }
             else
+            {
+                if (string.IsNullOrEmpty(model.FullName))
+                {
+                    ModelState.AddModelError("FullName", "Custom full name error message.");
+                }
+                if (string.IsNullOrEmpty(model.Email))
+                {
+                    ModelState.AddModelError("Email", "Custom email error message.");
+                }
+
+                if (string.IsNullOrEmpty(model.address))
+                {
+                    ModelState.AddModelError("address", "Custom address error message.");
+                }
+                if (string.IsNullOrEmpty(model.Ic))
+                {
+                    ModelState.AddModelError("Ic", "Custom IC error message.");
+                }
+               
+            }
+
+            return View("EditCustomerView", model);
+        }
+
+
+        public async Task<IActionResult> ResetPassword(string id)
+        {
+            if (string.IsNullOrEmpty(id))
             {
                 return RedirectToAction("Index", "GymSession");
             }
 
-            return View(model);
+            // Find the user by their ID
+            var user = _userManager.Users.SingleOrDefault(u => u.Id == id);
+
+            if (user == null)
+            {
+                // Handle the case where the user was not found
+                return RedirectToAction("Index", "ManageAdmin");
+            }
+
+            // Generate a new password reset token
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            // Define the new password
+            string newPassword = user.Ic+"_Reset"; // Make sure to use a strong password
+
+            // Reset the user's password using the token
+            var result = await _userManager.ResetPasswordAsync(user, token, newPassword);
+
+            if (result.Succeeded)
+            {
+                // The password has been reset successfully
+                return RedirectToAction("Index", "ManageCustomer");
+            }
+            else
+            {
+                return RedirectToAction("Index", "GymSession");
+                //Handle the case where the password reset failed
+                //foreach (var error in result.Errors)
+                //{
+                //    ModelState.AddModelError(string.Empty, error.Description);
+                //}
+                //return View();
+            }
         }
     }
 }

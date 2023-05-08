@@ -890,6 +890,10 @@ C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Gy
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\GymSession\Index.cshtml.g.cs
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageAdmin\AddAdminView.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageAdmin\EditAdminView.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageAdmin\Index.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageAdmin\updatePasswordView.cshtml.g.cs
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageCustomer\AddCustomerView.cshtml.g.cs
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageCustomer\EditCustomerView.cshtml.g.cs
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageCustomer\Index.cshtml.g.cs
