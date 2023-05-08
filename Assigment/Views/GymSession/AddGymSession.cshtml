@@ -3,13 +3,13 @@
 @{
     ViewData["Title"] = "AddGymSession";
 }
- <style>
-     .form-container {
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
+<style>
+    .form-container {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
     }
 
     .no-border-input {
@@ -17,14 +17,14 @@
         box-shadow: none;
         background-color: transparent;
     }
- </style>
+</style>
 <div class="container form-container">
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <button onclick="window.location.href = 'https://localhost:44392/GymSession';" class="btn btn-link">
                 <div>
-                <span class="material-icons">arrow_back</span>
-                <p>Back</p>
+                    <span class="material-icons">arrow_back</span>
+                    <p>Back</p>
             </button>
             <h1>Add Gym Session</h1>
             <hr>
@@ -32,13 +32,13 @@
                 <!-- Trainer Name -->
                 <div class="row">
                     <div class="col-md-6">
-                         <div class="form-group">
+                        <div class="form-group">
                             <label for="trainerName">Trainer Name</label>
                             <input asp-for="gymSession_TrainerName" type="text" class="form-control" id="trainerName" placeholder="Trainer Name">
                             <span asp-validation-for="gymSession_TrainerName" class="text-danger"></span>
-                            </div>
+                        </div>
 
-                                  <!-- Category -->
+                        <!-- Category -->
                         <div class="form-group">
                             <label for="gymSession_Category">Category</label>
                             <select class="form-control" id="gymSession_Category" asp-for="gymSession_Category">
@@ -83,15 +83,14 @@
                         </div>
                     </div>
 
-                 <div class="col-md-6">
-                     <!-- Upload Image -->
-                    <div class="form-group">
-                        <label for="gymSession_Trainer_Image_URL">Upload Image</label>
+                    <div class="col-md-6">
+                        <!-- Upload Image -->
+                        <div class="form-group">
+                            <label for="gymSession_Trainer_Image_URL">Upload Image</label>
                             <input asp-for="gymSession_Trainer_Image_URL" type="file" name="imagefile" class="form-control no-border-input" id="gymSession_Trainer_Image_URL" required>
+                        </div>
                     </div>
-                 </div>
-
-                </div>                
+                </div>
             </form>
         </div>
     </div>
@@ -120,9 +119,3 @@
         });
     </script>
 }
-
-
-
-
-
-
