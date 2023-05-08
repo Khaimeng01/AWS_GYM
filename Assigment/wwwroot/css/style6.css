@@ -1,0 +1,69 @@
+/* Set background color */
+body {
+    background-image: linear-gradient(to right top, #09090a, #0a090a, #0b0909, #0b0908, #0a0a08);
+}
+
+/* Style form container */
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-title {
+    font-size: 2rem; /* increased font size */
+    margin-bottom: 2rem; /* increased margin */
+    border: 2px solid #FF0000; /* added red border */
+    background-color: #FF0000; /* added red background color */
+    color: #fff; /* set text color to white */
+    padding: 15px; /* increased padding */
+    text-align: center; /* center the text */
+}
+
+/* Style form */
+.col-md-6 {
+    max-width: 750px; /* increased width */
+    background-color: #fff;
+    padding: 30px; /* increased padding */
+    border: 2px solid #000; /* added border */
+    border-radius: 10px; /* added border radius */
+}
+
+.form-group {
+    margin-bottom: 2rem; /* increased margin */
+}
+
+.form-control {
+    height: calc(2.5em + 1rem + 2px); /* increased height */
+    padding: 0.75rem 1.5rem; /* increased padding */
+    font-size: 1.2rem; /* increased font size */
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    width: 100%; /* added equal width */
+}
+
+    .form-control:focus {
+        border-color: #80bdff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+
+/* Shorten text fields */
+input[type="text"] {
+    max-width: 100%; /* set max-width to 100% */
+}
+
+/* Style validation error messages */
+.field-validation-error {
+    color: #dc3545;
+    margin-top: 0.75rem; /* increased margin */
+}
+
+/* Style submit button */
+.btn-primary {
+    margin-top: 2rem; /* increased margin */
+}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Assigment.Areas.Identity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,21 @@ namespace Assigment.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            [Display(Name = "address")]
+            public string address { get; set; }
+
+            [Display(Name = "Ic")]
+            public string Ic { get; set; }
+
+            [Required(ErrorMessage = " You must key in your full name first!")]
+            [Display(Name = "FullName")]
+            public string FullName { get; set; }
+
+            [Display(Name = "RegisteredDate")]
+            [DataType(DataType.Date)]
+            public DateTime RegisteredDate { get; set; }
+
         }
 
         private async Task LoadAsync(AssigmentUser user)
@@ -47,7 +63,12 @@ namespace Assigment.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                FullName = user.FullName,
+                address =user.address,
+                Ic =user.Ic,
+                RegisteredDate=user.RegisteredDate,
+
             };
         }
 
@@ -87,6 +108,23 @@ namespace Assigment.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
+            if (Input.FullName != user.FullName)
+            {
+                user.FullName = Input.FullName;
+            }
+            if (Input.address != user.address)
+            {
+                user.address = Input.address;
+            }
+            if (Input.RegisteredDate != user.RegisteredDate)
+            {
+                user.RegisteredDate = Input.RegisteredDate;
+            }
+            if (Input.Ic != user.Ic)
+            {
+                user.Ic = Input.Ic;
+            }
+            await _userManager.UpdateAsync(user);
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";

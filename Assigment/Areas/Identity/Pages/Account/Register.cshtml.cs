@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using Assigment.Areas.Identity.Data;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Encodings.Web;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+using System;
+using Assigment.Areas.Identity.Data;
+using System.Linq;
 
 namespace Assigment.Areas.Identity.Pages.Account
 {
@@ -46,6 +47,12 @@ namespace Assigment.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+            [Required(ErrorMessage = "Please enter your Full Name first before submitting your form!")]
+            [StringLength(256, ErrorMessage = "You must enter the value between 6 - 256 chars", MinimumLength = 6)]
+            [Display(Name = "FullName")] //label
+
+            public string FullName { get; set; }
+
             [Required]
             [Display(Name = "Username")]
             public string CustomerName { get; set; }
@@ -56,17 +63,23 @@ namespace Assigment.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required]
+            [RegularExpression(@"^\d{6}-\d{2}-\d{4}$", ErrorMessage = "The IC number must be in the format of xxxxxx-xx-xxxx.")]
+            [Display(Name="Ic")]
+            public string Ic { get; set; }
+
+            [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
+            [Display(Name = "ConfirmPassword")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
             [Required]
+<<<<<<< Updated upstream
             [Display(Name = "Phone Number")]
             public string PhoneNumber { get; set; }
 
@@ -79,6 +92,23 @@ namespace Assigment.Areas.Identity.Pages.Account
 
 
 
+=======
+            [Display(Name = "PhoneNumber")]
+            [RegularExpression(@"^\d{10}$", ErrorMessage = "The phone number must be a 10-digit number.")]
+            public string PhoneNumber { get; set; }
+
+            [Required]
+            [Display(Name = "RegisteredDate")]
+            [DataType(DataType.Date)]
+
+            public DateTime RegisteredDate{ get; set; }
+
+            [Required]
+            [StringLength(100, MinimumLength = 5, ErrorMessage = "The address must be between 5 and 100 characters long.")]
+            [RegularExpression(@"^[a-zA-Z0-9\s\-\#]+$", ErrorMessage = "The address can only contain letters, numbers, spaces, dashes, and hash symbols.")]
+            [Display(Name = "address")]
+            public string address { get; set; }
+>>>>>>> Stashed changes
 
         }
 
@@ -94,11 +124,26 @@ namespace Assigment.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+<<<<<<< Updated upstream
                 var user = new AssigmentUser 
                 { UserName = Input.CustomerName, 
                     Email = Input.Email,
                     PhoneNumber = Input.PhoneNumber,
                 };
+=======
+                var user = new AssigmentUser
+                {
+                    UserName = Input.Email,
+                    Email = Input.Email,
+                    FullName = Input.FullName,
+                    RegisteredDate = Input.RegisteredDate,
+                    Ic = Input.Ic,
+                    PhoneNumber=Input.PhoneNumber,
+                    address=Input.address,
+                    EmailConfirmed = true
+                };
+
+>>>>>>> Stashed changes
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -119,7 +164,8 @@ namespace Assigment.Areas.Identity.Pages.Account
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        //return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        return RedirectToPage("Login");
                     }
                     else
                     {

@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< Updated upstream
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Assigment</title>
@@ -38,12 +39,36 @@
             @RenderBody()
         </main>
     </div>
+=======
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - FLEXZONE FITNESS</title>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Assigment - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+        <header class="header">
+>>>>>>> Stashed changes
+
+            <a href="#" class="logo"> <span>FLEXZONE</span>FITNESS </a>
+
+            <div id="menu-btn" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <a class="#home" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <a class="#View Facilities" asp-area="" asp-controller="Home" asp-action="Views_Home_Facilities">Facilities</a>
+                <a class="#Locations" asp-area="" asp-controller="Home" asp-action="Locations">Locations</a>
+            <a class="#Contact Us" asp-area="" asp-controller="Home" asp-action="Contact_Us">Contact Us</a>
+
+            </nav>
+            <partial name="_LoginPartial" />
+
+       </header>
+    @RenderBody()
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

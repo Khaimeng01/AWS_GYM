@@ -1,8 +1,41 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="home" id="home">
+
+    <div class="swiper home-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide" style="background: url(https://gymfacilities.s3.amazonaws.com/home-bg-1.jpg) no-repeat;">
+                <div class="content">
+                    <span>Be Bold, Be Courages, Go Nuts</span>
+                    <h3>Check us out</h3>
+                    <a asp-area="" asp-controller="Home" asp-action="Locations" class="btn">Locations</a>
+                </div>
+            </div>
+            </div>
+
+        <div class="swiper-slide slide" style="background: url(https://gymfacilities.s3.amazonaws.com/home-bg-2.jpg) no-repeat;">
+                <div class="content">
+                    <span>Take Charge, Break Boundaries</span>
+                    <h3>Smash Your Limits</h3>
+                    <a asp-area="" asp-controller="Home" asp-action="Views_Home_Facilities" class="btn">View Facilities</a>
+                </div>
+            </div>
+
+        <div class="swiper-slide slide" style="background: url(https://gymfacilities.s3.amazonaws.com/home-bg-3.jpg) no-repeat;">
+                <div class="content">
+                    <span>be valiant, be tough</span>
+                    <h3>Explore Your Body</h3>
+                <a asp-area="Identity" asp-page="/Account/Register" class="btn">Become a member now!!</a>
+
+                </div>
+            </div>
+
+        <div class="swiper-pagination"></div>
+      </div>
+</section>
+
+

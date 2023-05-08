@@ -1,11 +1,33 @@
 ﻿@page
-@model RegisterModel
+@model Assigment.Areas.Identity.Pages.Account.RegisterModel
 @{
-    ViewData["Title"] = "Register";
+
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="~/css/style2.css" />
+</head>
+<body>
+    <section class="container">
+        <header>Registration Form</header>
+        <form asp-route-returnUrl="@Model.ReturnUrl" class="form" method="post">
+            <div class="input-box">
+                <label asp-for="Input.FullName"></label>
+                <input asp-for="Input.FullName"class="form-control" placeholder="Enter full name"/>
+                <span asp-validation-for="Input.FullName" class="text-danger"></span>
+            </div>
 
-<h1>@ViewData["Title"]</h1>
+            <div class="input-box">
+                <label asp-for="Input.Ic"></label>
+                <input asp-for="Input.Ic" class="form-control" placeholder="Enter IC Number"/>
+                <span asp-validation-for="Input.Ic" class="text-danger"></span>
+            </div>
 
+<<<<<<< Updated upstream
 <div class="row">
     <div class="col-md-4">
         <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
@@ -18,20 +40,26 @@
                 @*<span asp-validation-for="Input.Email" class="text-danger"></span>*@
             </div>
             <div class="form-group">
+=======
+            <div class="input-box">
+>>>>>>> Stashed changes
                 <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" />
+                <input asp-for="Input.Email" class="form-control" placeholder="Enter Email Address"/>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="input-box">
                 <label asp-for="Input.Password"></label>
-                <input asp-for="Input.Password" class="form-control" />
+                <input asp-for="Input.Password" class="form-control" placeholder="Enter Password"/>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="input-box">
                 <label asp-for="Input.ConfirmPassword"></label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" />
+                <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm Password"/>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
+<<<<<<< Updated upstream
              <div class="form-group">
                 <label asp-for="Input.PhoneNumber "></label>
                 <input asp-for="Input.PhoneNumber " class="form-control" />
@@ -86,7 +114,28 @@
    </div>
 </div>
 </div>
+=======
+>>>>>>> Stashed changes
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+            <div class="column">
+                <div class="input-box">
+                    <label asp-for="Input.PhoneNumber"></label>
+                    <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Enter Phone Number"/>
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                </div>
+                <<div class="input-box">
+                    <label asp-for="Input.RegisteredDate"></label>
+                    <input asp-for="Input.RegisteredDate" class="form-control" placeholder="RegisteredDate" />
+                    <span asp-validation-for="Input.RegisteredDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="input-box address">
+                <label asp-for="Input.address"></label>
+                <input asp-for="Input.address" class="form-control" placeholder="Enter Address"/>
+                <span asp-validation-for="Input.address" class="text-danger"></span>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </section>
+</body>
+</html>

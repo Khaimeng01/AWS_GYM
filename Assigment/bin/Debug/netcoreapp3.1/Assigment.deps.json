@@ -31,8 +31,12 @@
     ".NETCoreApp,Version=v3.1": {
       "Assigment/1.0.0": {
         "dependencies": {
+<<<<<<< Updated upstream
           "AWSSDK.S3": "3.7.104.7",
           "AWSSDK.SimpleNotificationService": "3.7.101.58",
+=======
+          "AWSSDK.S3": "3.7.104.8",
+>>>>>>> Stashed changes
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.32",
           "Microsoft.AspNetCore.Identity.UI": "3.1.32",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "3.1.31",
@@ -313,31 +317,50 @@
           "Assigment.dll": {}
         }
       },
+<<<<<<< Updated upstream
       "AWSSDK.Core/3.7.106.29": {
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.Core.dll": {
             "assemblyVersion": "3.3.0.0",
             "fileVersion": "3.7.106.29"
+=======
+      "AWSSDK.Core/3.7.106.30": {
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.7.106.30"
+>>>>>>> Stashed changes
           }
         },
         "compile": {
           "lib/netcoreapp3.1/AWSSDK.Core.dll": {}
         }
       },
+<<<<<<< Updated upstream
       "AWSSDK.S3/3.7.104.7": {
         "dependencies": {
           "AWSSDK.Core": "3.7.106.29"
+=======
+      "AWSSDK.S3/3.7.104.8": {
+        "dependencies": {
+          "AWSSDK.Core": "3.7.106.30"
+>>>>>>> Stashed changes
         },
         "runtime": {
           "lib/netcoreapp3.1/AWSSDK.S3.dll": {
             "assemblyVersion": "3.3.0.0",
+<<<<<<< Updated upstream
             "fileVersion": "3.7.104.7"
+=======
+            "fileVersion": "3.7.104.8"
+>>>>>>> Stashed changes
           }
         },
         "compile": {
           "lib/netcoreapp3.1/AWSSDK.S3.dll": {}
         }
       },
+<<<<<<< Updated upstream
       "AWSSDK.SimpleNotificationService/3.7.101.58": {
         "dependencies": {
           "AWSSDK.Core": "3.7.106.29"
@@ -427,6 +450,8 @@
           "lib/netstandard2.0/K4os.Hash.xxHash.dll": {}
         }
       },
+=======
+>>>>>>> Stashed changes
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.32": {
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll": {
@@ -1844,11 +1869,7 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.ComponentModel.Annotations/4.7.0": {
-        "compile": {
-          "ref/netstandard2.1/System.ComponentModel.Annotations.dll": {}
-        }
-      },
+      "System.ComponentModel.Annotations/4.7.0": {},
       "System.ComponentModel.Primitives/4.3.0": {
         "dependencies": {
           "System.ComponentModel": "4.3.0",
@@ -4444,6 +4465,7 @@
       "serviceable": false,
       "sha512": ""
     },
+<<<<<<< Updated upstream
     "AWSSDK.Core/3.7.106.29": {
       "type": "package",
       "serviceable": true,
@@ -4513,6 +4535,21 @@
       "sha512": "sha512-jCfNP0inx1sGcP3KSbpiDEH3km2e1sVBjMfKo+V92jr1dL4ZYgA1uhRMl1wAtdGZcbObXIikKqtVlgx3j/CW6g==",
       "path": "k4os.hash.xxhash/1.0.6",
       "hashPath": "k4os.hash.xxhash.1.0.6.nupkg.sha512"
+=======
+    "AWSSDK.Core/3.7.106.30": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-v0P0ZHo04G/SsJd+Fa6iAVbN9p84AXKtBOa8qG3I47H4spAaSKA7I8CGgqceAtOVAks5MqgGaL6a7qx71D89KQ==",
+      "path": "awssdk.core/3.7.106.30",
+      "hashPath": "awssdk.core.3.7.106.30.nupkg.sha512"
+    },
+    "AWSSDK.S3/3.7.104.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0Nf7/ToEhSjgFKRgt5wm1TLgWfdeNVdlc/qNeDSzrnrrzJVgSQj0TDs04zGqO62fRx3Ty3eVUT+50HuFpey4Tw==",
+      "path": "awssdk.s3/3.7.104.8",
+      "hashPath": "awssdk.s3.3.7.104.8.nupkg.sha512"
+>>>>>>> Stashed changes
     },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.32": {
       "type": "package",

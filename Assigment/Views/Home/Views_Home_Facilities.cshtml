@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Views_Home_Facilities";
+}
+<section class="facilities" id="facilities">
+
+<h1 class="heading"><span>Gym Facilities</span> </h1>
+
+<div class="box-container">
+     <div class="box">
+        <div class="content">
+            <img src=https://gymfacilities.s3.amazonaws.com/Facilities+main/Facilities+main/icon-2.png alt="">
+            <h3>Weightlifting</h3>
+                <p>Elevate your strength and fitness with our weightlifting program, led by knowledgeable trainers and designed to help you reach your goals</p>
+            <button onclick="location.href='@Url.Action("Weighlifting_Session", "Weightlifting")'" class="btn">read more</button>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src=https://gymfacilities.s3.amazonaws.com/Facilities+main/Facilities+main/boxing.png alt="">
+            <h3>Boxing Class</h3>
+            <p>Unleash your inner fighter and build strength, endurance, and confidence through our high-energy boxing workout</p>
+            <button onclick="location.href='@Url.Action("Boxing", "Boxing")'" class="btn">read more</button>
+        </div>
+    </div>
+    <div class="box second">
+        <div class="content">
+            <img src=https://gymfacilities.s3.amazonaws.com/Facilities+main/Facilities+main/spin.png alt="">
+            <h3>Spin Class</h3>
+                <p>Push your limits and experience the thrill of indoor cycling at our spin classes</p>
+            <button onclick="location.href='@Url.Action("Spin", "Spin")'" class="btn">read more</button>
+        </div>
+    </div>
+    <div class="box second">
+        <div class="content">
+            <img src=https://gymfacilities.s3.amazonaws.com/Facilities+main/Facilities+main/icon-3.png alt="">
+            <h3>Personal Trainers</h3>
+            <p>Get personalized training and achieve your fitness goals with our expert trainers and customized programs</p>
+            <button onclick="location.href='@Url.Action("Trainers", "Trainers")'" class="btn">read more</button>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src=https://gymfacilities.s3.amazonaws.com/Facilities+main/Facilities+main/pilates.png alt="">
+            <h3>Pilates</h3>
+            <p>Transform your body and mind at our Pilates gym, with expert instructors and a welcoming community to support your fitness journey</p>
+            <button onclick="location.href='@Url.Action("Pilates", "Pilates")'" class="btn">read more</button>
+        </div>
+    </div>
+    <div class="box">
+         <div class="content">
+            <img src=https://gymfacilities.s3.amazonaws.com/Facilities+main/Facilities+main/yoga.png alt="">
+            <h3>Yoga Class</h3>
+            <p>Experience the transformative power of yoga at our peaceful and inclusive gym, with classes suitable for all levels taught by certified instructors.</p>
+            <button onclick="location.href='@Url.Action("Yoga", "Yoga")'" class="btn">read more</button>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<h1>Views_Home_Facilities</h1>
+

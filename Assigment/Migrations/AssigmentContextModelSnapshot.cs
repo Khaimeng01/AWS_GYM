@@ -31,6 +31,24 @@ namespace Assigment.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+<<<<<<< Updated upstream
+=======
+                    b.Property<string>("CustomerAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CustomerDOR")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CustomerFullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerIC")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerPhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+>>>>>>> Stashed changes
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);

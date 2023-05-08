@@ -1,12 +1,19 @@
+<<<<<<< Updated upstream
 using Assigment.Areas.Identity.Data;
 using Assigment.Data;
 using Assigment.Database;
+=======
+using Assigment.Data;
+>>>>>>> Stashed changes
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
+<<<<<<< Updated upstream
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
+=======
+>>>>>>> Stashed changes
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,9 +36,10 @@ namespace Assigment
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        { 
             services.AddControllersWithViews();
             services.AddRazorPages();
+<<<<<<< Updated upstream
             services.AddDbContext<MyDbContext>(options =>
                 options.UseMySQL(Configuration.GetConnectionString("AssigmentContextConnection_2")));
     //        services.AddDbContext<AssigmentContext>(options =>
@@ -41,6 +49,8 @@ namespace Assigment
 
 
 
+=======
+>>>>>>> Stashed changes
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

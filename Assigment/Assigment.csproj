@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< Updated upstream
     <None Remove="StyleSheet.css" />
   </ItemGroup>
 
@@ -13,6 +14,9 @@
     <PackageReference Include="AWSSDK.S3" Version="3.7.104.7" />
     <PackageReference Include="AWSSDK.SimpleNotificationService" Version="3.7.101.58" />
     <PackageReference Include="bootstrap" Version="5.2.3" />
+=======
+    <PackageReference Include="AWSSDK.S3" Version="3.7.104.8" />
+>>>>>>> Stashed changes
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.32" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.32" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.31" />
