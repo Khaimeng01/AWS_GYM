@@ -914,7 +914,6 @@ C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.cspr
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.dll
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.pdb
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.genruntimeconfig.cache
-<<<<<<< Updated upstream
 =======
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Assigment.csproj.AssemblyReference.cache
 C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\bin\Debug\netcoreapp3.1\libman.json
@@ -946,7 +945,6 @@ C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Proje
 C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageCustomer\EditCustomerView.cshtml.g.cs
 C:\Users\Arvind\OneDrive - Asia Pacific University\Degree Lvl 3\SEM 2\DDAC\Projects\Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\ManageCustomer\Index.cshtml.g.cs
 >>>>>>> Stashed changes
-=======
 C:\Users\OS\Documents\DDAC Assignment\Assigment\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\OS\Documents\DDAC Assignment\Assigment\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\OS\Documents\DDAC Assignment\Assigment\bin\Debug\netcoreapp3.1\Assigment.StaticWebAssets.xml
@@ -1404,4 +1402,18 @@ C:\Users\OS\Documents\DDAC Assignment\Assigment\obj\Debug\netcoreapp3.1\Assigmen
 C:\Users\OS\Documents\DDAC Assignment\Assigment\obj\Debug\netcoreapp3.1\Assigment.genruntimeconfig.cache
 C:\Users\OS\Documents\DDAC Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Home\Locations.cshtml.g.cs
 C:\Users\OS\Documents\DDAC Assignment\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Home\Contact_Us.cshtml.g.cs
->>>>>>> Stashed changes
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\email.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Navigationbar.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\BookingSession\Index.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Boxing\Boxing.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Home\Contact_Us.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Home\Locations.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Home\Views_Home_Facilities.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Pilates\Pilates.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\SNS\broadcastMessageForm.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\SNS\Index.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Spin\Spin.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Trainers\Trainers.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Weightlifting\Weighlifting_Session.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Yoga\Yoga.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout2.cshtml.g.cs

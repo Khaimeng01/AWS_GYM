@@ -86,7 +86,7 @@ namespace Assigment.Areas.Identity.Pages.Account
                     var user = await _userManager.FindByEmailAsync(Input.Email);
                     if (await _userManager.IsInRoleAsync(user, "Admin"))
                     {
-                        return RedirectToAction("Index", "GymSession");
+                        return RedirectToAction("Index", "ManageCustomer");
                     }
                     else if (await _userManager.IsInRoleAsync(user, "Customer"))
                     {

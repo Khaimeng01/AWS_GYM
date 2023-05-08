@@ -79,20 +79,6 @@ namespace Assigment.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
 
             [Required]
-<<<<<<< Updated upstream
-            [Display(Name = "Phone Number")]
-            public string PhoneNumber { get; set; }
-
-            [Required]
-            [Range(18,100,ErrorMessage="Invalid AGE")]
-            [Display(Name = "Customer Age")]
-            public int customerAge { get; set; }
-
-
-
-
-
-=======
             [Display(Name = "PhoneNumber")]
             [RegularExpression(@"^\d{10}$", ErrorMessage = "The phone number must be a 10-digit number.")]
             public string PhoneNumber { get; set; }
@@ -108,7 +94,7 @@ namespace Assigment.Areas.Identity.Pages.Account
             [RegularExpression(@"^[a-zA-Z0-9\s\-\#]+$", ErrorMessage = "The address can only contain letters, numbers, spaces, dashes, and hash symbols.")]
             [Display(Name = "address")]
             public string address { get; set; }
->>>>>>> Stashed changes
+
 
         }
 
@@ -124,13 +110,7 @@ namespace Assigment.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-<<<<<<< Updated upstream
-                var user = new AssigmentUser 
-                { UserName = Input.CustomerName, 
-                    Email = Input.Email,
-                    PhoneNumber = Input.PhoneNumber,
-                };
-=======
+
                 var user = new AssigmentUser
                 {
                     UserName = Input.Email,
@@ -143,7 +123,7 @@ namespace Assigment.Areas.Identity.Pages.Account
                     EmailConfirmed = true
                 };
 
->>>>>>> Stashed changes
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

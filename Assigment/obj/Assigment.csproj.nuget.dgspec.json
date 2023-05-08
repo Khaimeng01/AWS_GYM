@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\OS\\Documents\\DDAC Assignment\\Assigment\\Assigment.csproj": {}
+    "C:\\Users\\laikh\\Desktop\\AWS_CODE\\Assigment\\Assigment.csproj": {}
   },
   "projects": {
-    "C:\\Users\\OS\\Documents\\DDAC Assignment\\Assigment\\Assigment.csproj": {
+    "C:\\Users\\laikh\\Desktop\\AWS_CODE\\Assigment\\Assigment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\OS\\Documents\\DDAC Assignment\\Assigment\\Assigment.csproj",
+        "projectUniqueName": "C:\\Users\\laikh\\Desktop\\AWS_CODE\\Assigment\\Assigment.csproj",
         "projectName": "Assigment",
-        "projectPath": "C:\\Users\\OS\\Documents\\DDAC Assignment\\Assigment\\Assigment.csproj",
-        "packagesPath": "C:\\Users\\OS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\OS\\Documents\\DDAC Assignment\\Assigment\\obj\\",
+        "projectPath": "C:\\Users\\laikh\\Desktop\\AWS_CODE\\Assigment\\Assigment.csproj",
+        "packagesPath": "C:\\Users\\laikh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\laikh\\Desktop\\AWS_CODE\\Assigment\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\OS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\laikh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -47,15 +46,11 @@
           "dependencies": {
             "AWSSDK.S3": {
               "target": "Package",
-<<<<<<< Updated upstream
-              "version": "[3.7.104.7, )"
+              "version": "[3.7.104.8, )"
             },
             "AWSSDK.SimpleNotificationService": {
               "target": "Package",
               "version": "[3.7.101.58, )"
-=======
-              "version": "[3.7.104.8, )"
->>>>>>> Stashed changes
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -110,11 +105,16 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.21, 3.1.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -123,7 +123,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
