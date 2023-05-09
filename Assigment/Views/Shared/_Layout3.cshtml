@@ -1,7 +1,8 @@
 ﻿
 @{
-    ViewData["Title"] = "_Layout2";
+    ViewData["Title"] = "_Layout3";
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,28 +23,23 @@
            .login-partial-space {
            margin-left: 10rem; /* Adjust the value as needed */
         }
+        .padding-top-30 {
+    padding-top: 30px;
+}
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="d-flex containter mx-auto">
-                <a class="navbar-brand text-bold" asp-area="" asp-controller="Home" asp-action="Index">
-                    FlexZone Admin</a>
-                <partial name="_LoginPartial" class="login-partial-space" />
-            </div>
-        </nav>
-    </header>
+    
 
     <div class="container d-flex flex-grow-1">
-        <main role="main" class="pb-3 flex-grow-1">
+        <main role="main" class="padding-top-30 pb-3 flex-grow-1">
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
 
@@ -54,4 +50,5 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
 

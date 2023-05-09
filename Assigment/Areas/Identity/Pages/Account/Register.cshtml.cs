@@ -15,6 +15,7 @@ using System.Xml.Linq;
 using System;
 using Assigment.Areas.Identity.Data;
 using System.Linq;
+using Login.Controllers;
 
 namespace Assigment.Areas.Identity.Pages.Account
 {
@@ -54,21 +55,17 @@ namespace Assigment.Areas.Identity.Pages.Account
             public string FullName { get; set; }
 
             [Required]
-            [Display(Name = "Username")]
-            public string CustomerName { get; set; }
-
-            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required]
-            [RegularExpression(@"^\d{6}-\d{2}-\d{4}$", ErrorMessage = "The IC number must be in the format of xxxxxx-xx-xxxx.")]
-            [Display(Name="Ic")]
+            [RegularExpression(@"^\d{12}$", ErrorMessage = "The IC number must be 12 digits.")]
+            [Display(Name = "Ic")]
             public string Ic { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+
+            [Required(ErrorMessage = "The {0} field is required.")]
+            [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,}$", ErrorMessage = "The password must be at least 8 characters long, and contain at least one lowercase letter, one uppercase letter, one digit, and one special character.")]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
@@ -87,14 +84,13 @@ namespace Assigment.Areas.Identity.Pages.Account
             [Display(Name = "RegisteredDate")]
             [DataType(DataType.Date)]
 
-            public DateTime RegisteredDate{ get; set; }
+            public DateTime RegisteredDate { get; set; }
 
             [Required]
             [StringLength(100, MinimumLength = 5, ErrorMessage = "The address must be between 5 and 100 characters long.")]
             [RegularExpression(@"^[a-zA-Z0-9\s\-\#]+$", ErrorMessage = "The address can only contain letters, numbers, spaces, dashes, and hash symbols.")]
             [Display(Name = "address")]
             public string address { get; set; }
-
 
         }
 
@@ -110,7 +106,6 @@ namespace Assigment.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-
                 var user = new AssigmentUser
                 {
                     UserName = Input.Email,
@@ -118,11 +113,10 @@ namespace Assigment.Areas.Identity.Pages.Account
                     FullName = Input.FullName,
                     RegisteredDate = Input.RegisteredDate,
                     Ic = Input.Ic,
-                    PhoneNumber=Input.PhoneNumber,
-                    address=Input.address,
+                    PhoneNumber = Input.PhoneNumber,
+                    address = Input.address,
                     EmailConfirmed = true
                 };
-
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
@@ -130,6 +124,9 @@ namespace Assigment.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
 
                     await _userManager.AddToRoleAsync(user, "Customer");
+
+                    var snsController = new SNSController();
+                    await snsController.registerNewsletter(user.Email);
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));

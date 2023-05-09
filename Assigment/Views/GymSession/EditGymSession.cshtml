@@ -1,6 +1,7 @@
 ﻿@model Assigment.Models.gymSession
 @{
     ViewData["Title"] = "EditGymSession";
+    Layout = "_Layout2";
 }
  <style>
      .form-container {
@@ -17,6 +18,23 @@
         background-color: transparent;
     }
  </style>
+
+                 <script>
+                  function toggleFileInput() {
+                        var checkbox = document.getElementById("editImageCheckbox");
+                        var fileInput = document.getElementById("fileInput");
+                        var isImageUpdated = document.getElementById("gymSession_IsImageUpdated");
+                        var previous = document.getElementById("gymSession_Trainer_Prev_Image_URL");
+                        if (checkbox.checked) {
+                          fileInput.style.display = "block";
+                          isImageUpdated.value = true;
+                          previous=@Model.gymSession_Trainer_Image_S3Key;
+                        } else {
+                          fileInput.style.display = "none";
+                          isImageUpdated.value = false;
+                             }
+                        }
+                </script>
 
 <div class="container form-container">
     <div class="row">
@@ -98,22 +116,7 @@
 
   
                 </form>
-                <script>
-                  function toggleFileInput() {
-                        var checkbox = document.getElementById("editImageCheckbox");
-                        var fileInput = document.getElementById("fileInput");
-                        var isImageUpdated = document.getElementById("gymSession_IsImageUpdated");
-                        var previous = document.getElementById("gymSession_Trainer_Prev_Image_URL");
-                        if (checkbox.checked) {
-                          fileInput.style.display = "block";
-                          isImageUpdated.value = true;
-                          previous=@Model.gymSession_Trainer_Image_S3Key;
-                        } else {
-                          fileInput.style.display = "none";
-                          isImageUpdated.value = false;
-                             }
-                        }
-                </script>
+
         </div>
     </div>
 </div>

@@ -13,40 +13,77 @@
     .navbar .nav-item{
             display: inline-block;
         }
+
+    .user-actions {
+        display: flex;
+        align-items: center;
+        padding-right:3px;
+    }
+
+    .nav-item {
+        display: inline-block;
+    }
+    
+    #manage {
+        font-weight: bold;
+        color: white;
+        white-space: nowrap; /* Add this line to prevent line break */
+        overflow: hidden; /* Add this line to hide overflow if necessary */
+        text-overflow: ellipsis; /* Add this line to show ellipsis if necessary */
+    }
+
+          
 </style>
 
 
 <ul class="navbar-nav mx-auto no-bullet">
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="GymSession" asp-action="Index">Manage Gym Sessions</a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="ManageCustomer" asp-action="Index">Manage Customer</a>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="ManageAdmin" asp-action="Index">Manage Admin</a>
-
-    </li>
-
-      <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="" asp-controller="SendEmail" asp-action="Index">Manage Admin 2</a>
-
-    </li>
-
-    <li class="nav-item">
-        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-    </li>
-    <li class="nav-item">
-        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
-
+        var user = await UserManager.GetUserAsync(User);
+        if (await UserManager.IsInRoleAsync(user, "Admin")) { 
         
+             <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="GymSession" asp-action="Index">Gym Session</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="ManageCustomer" asp-action="Index">Manage Customer</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="ManageAdmin" asp-action="Index">Manage Admin</a>
+
+            </li>
+
+              <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="SNS" asp-action="Index">Publish Message</a>
+
+            </li>
+
+
+
+             <li class="nav-item">
+            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+        </li>
+        <li class="nav-item">
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+            </li>
+        }
+        else
+        {
+            <div class="user-actions">
+                <li class="nav-item">
+                    <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+                </li>
+                <li class="nav-item">
+                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                    </form>
+                </li>
+            </div>
+        }
 
 }
 else

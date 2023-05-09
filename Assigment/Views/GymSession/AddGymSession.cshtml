@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "AddGymSession";
+    Layout = "_Layout2";
 }
 <style>
     .form-container {
@@ -21,11 +22,6 @@
 <div class="container form-container">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <button onclick="window.location.href = 'https://localhost:44392/GymSession';" class="btn btn-link">
-                <div>
-                    <span class="material-icons">arrow_back</span>
-                    <p>Back</p>
-            </button>
             <h1>Add Gym Session</h1>
             <hr>
             <form method="post" asp-action="ProcessAdditonalData" asp-controller="GymSession" enctype="multipart/form-data">

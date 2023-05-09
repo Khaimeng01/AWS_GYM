@@ -15,7 +15,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using MySql.Data.EntityFrameworkCore;
+using Assigment.Models;
 
 namespace Assigment
 {
@@ -33,7 +34,8 @@ namespace Assigment
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddDbContext<MyDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AssigmentContextConnection_2")));
+            services.AddDbContext<MyDbContext>(options => options.UseMySQL(Configuration.GetConnectionString("AssigmentContextConnection_2")));
+
 
         }
 
@@ -58,6 +60,8 @@ namespace Assigment
 
             CreateRoles(serviceProvider).GetAwaiter().GetResult();
             CreateAdminUser(serviceProvider).GetAwaiter().GetResult();
+
+            app.UseMiddleware<RoleBasedRedirectMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

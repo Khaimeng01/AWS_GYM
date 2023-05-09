@@ -10,6 +10,7 @@ namespace Assigment.Database
         }
 
         public DbSet<gymSession> GymSessions { get; set; }
+
         public DbSet<bookingSession> BookingSessions { get; set; }
     }
 }

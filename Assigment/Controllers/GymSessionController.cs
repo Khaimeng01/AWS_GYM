@@ -147,7 +147,7 @@ namespace Assigment.Controllers
 
                     await connectionClient.PutObjectAsync(uploadRequest);
 
-                    session.gymSession_Trainer_Image_URL = "https://" + bucketname + ".s3.amazonaws.com/images/" + imageFile.FileName;
+                    session.gymSession_Trainer_Image_URL = "https://d37pdvjp2e1cb9.cloudfront.net/images/" + imageFile.FileName;
                     session.gymSession_Trainer_Image_S3Key = "images/" + imageFile.FileName;
                 }
                 catch (AmazonS3Exception ex) { }
@@ -275,7 +275,7 @@ namespace Assigment.Controllers
                     //return RedirectToAction("AddGymSession", "GymSession");
                 }
 
-                gymSession.gymSession_Trainer_Image_URL = "https://" + bucketname + ".s3.amazonaws.com/images/" + imageFile.FileName;
+                gymSession.gymSession_Trainer_Image_URL = "https://d37pdvjp2e1cb9.cloudfront.net/images/" + imageFile.FileName;
                 gymSession.gymSession_Trainer_Image_S3Key = "images/" + imageFile.FileName;
 
                 _context.GymSessions.Add(gymSession);

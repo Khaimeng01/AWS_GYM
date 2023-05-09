@@ -88,10 +88,6 @@ namespace Assigment.Areas.Identity.Pages.Account
                     {
                         return RedirectToAction("Index", "ManageCustomer");
                     }
-                    else if (await _userManager.IsInRoleAsync(user, "Customer"))
-                    {
-                        return RedirectToAction("Index", "ManageCustomer");
-                    }
                     else
                     {
                         _logger.LogInformation("User logged in.");

@@ -1417,3 +1417,4 @@ C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Tr
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Weightlifting\Weighlifting_Session.cshtml.g.cs
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Yoga\Yoga.cshtml.g.cs
 C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout2.cshtml.g.cs
+C:\Users\laikh\Desktop\AWS_CODE\Assigment\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout3.cshtml.g.cs
