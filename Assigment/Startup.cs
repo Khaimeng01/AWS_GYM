@@ -61,7 +61,7 @@ namespace Assigment
             CreateRoles(serviceProvider).GetAwaiter().GetResult();
             CreateAdminUser(serviceProvider).GetAwaiter().GetResult();
 
-            app.UseMiddleware<RoleBasedRedirectMiddleware>();
+            //app.UseMiddleware<RoleBasedRedirectMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
